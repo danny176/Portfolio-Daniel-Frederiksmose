@@ -1,0 +1,68 @@
+h1 {
+  margin-top: 5vh;
+  color: #0e0e0e;
+  font-family: "Denim TRIAL";
+  font-size: 8vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 150px */
+  margin-bottom: 25vh;
+}
+
+.cirkel-info {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.infobar {
+  border-top: 1px solid black;
+  padding-bottom: 5vh;
+}
+
+.infobar h3, .infobar2 h3 {
+  margin-top: 1vh;
+  color: #656565;
+  text-align: left;
+  font-family: "Denim TRIAL";
+  font-size: 1vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 20px */
+  margin-bottom: 1vh;
+}
+
+.cirkel-info h2 {
+  color: #000;
+  text-align: center;
+  font-family: "Denim TRIAL";
+  font-size: 4vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.cirkel-info img {
+    display: block;
+    width: 1vw;
+    height: auto;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.infobar2 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-bottom: 5vh;
+    align-items: center;
+  }
+
+  .kontakt-bars {
+    margin-bottom: 35vh;
+  }
+
+  .infobar:hover .cirkel-info img {
+    transform: scale(1.5);
+}
+
+.infobar2:hover .cirkel-info img {
+    transform: scale(1.5);
+}

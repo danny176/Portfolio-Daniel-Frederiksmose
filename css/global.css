@@ -1,0 +1,188 @@
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+* {
+  margin: 0px 0px;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #0e0e0e;
+}
+
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Book.otf");
+}
+
+@font-face {
+  font-family: "PP Neue Montreal Bold";
+  src: url("/fonts/PPNeueMontreal-Medium.otf");
+}
+
+@font-face {
+  font-family: "Denim TRIAL";
+  src: url("/fonts/DenimTRIALVF.ttf");
+}
+
+.color-black {
+  background-color: black;
+}
+
+:root {
+  --myblue: rgb(49, 20, 229);
+  --Almost-black: #141414;
+  --myred: #472425;
+  --blue2: ;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: #f8f9f9;
+  margin: 0px 64px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0px;
+  max-width: 2560px;
+}
+
+.nav-container {
+  position: relative;
+  top: 0;
+  z-index: 1;
+  opacity: 0;
+}
+
+.right-links a {
+  font-family: "Denim TRIAL";
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.right-links img {
+  display: block;
+  width: 15px;
+  height: auto;
+}
+
+.company-name img {
+  display: block;
+  width: 180px;
+  height: auto;
+}
+
+.right-links {
+  position: relative;
+  display: flex;
+  gap: 5px;
+}
+.stagger-link {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.stagger-link-text {
+  text-shadow: 0px 1.2em 0px var(--Almost-black);
+  line-height: 1;
+}
+
+.footer-sec {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--myred);
+  margin-top: 7vw;
+  padding-top: 20px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.logo-cr {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 25px;
+}
+
+.logo-cr img {
+  width: 35vw;
+  height: auto;
+}
+
+.logo-cr h5 {
+  color: var(--Almost-black);
+  font-family: "Denim TRIAL";
+  font-size: 0.6vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.socials-webnav {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.social-columns {
+  display: flex;
+  gap: 40px;
+}
+
+.socials-webnav a:hover,
+.social-links a:hover {
+  text-decoration: underline var(--Almost-black);
+}
+
+.socials-webnav h4,
+.social-links h4 {
+  padding-bottom: 5px;
+  color: var(--Almost-black);
+  font-family: "Denim TRIAL";
+  font-size: 0.8vw;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.social-columns a {
+  color: var(--Almost-black);
+  font-family: "Denim TRIAL";
+  font-size: 0.8vw;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.scroll-to-top {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-bottom: 25px;
+}

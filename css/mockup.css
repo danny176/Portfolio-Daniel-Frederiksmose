@@ -1,0 +1,142 @@
+.overskrift {
+  margin-top: 5vh;
+  color: #0e0e0e;
+  font-family: "Denim TRIAL";
+  font-size: 10vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%; /* 192px */
+  padding-bottom: 2vh;
+  border-bottom: 1px solid black;
+}
+
+.info-kolonner {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2vh;
+  margin-bottom: 10vh;
+}
+
+.overskrift-tekst {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.overskrift-tekst h2 {
+    color: #000;
+    font-family: "PP Neue Montreal";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 28.8px */
+    text-transform: uppercase;
+    margin-bottom: 1vh;
+  }
+
+.overskrift-tekst h5 {
+  width: 25vw;
+  color: #000;
+  font-family: "PP Neue Montreal";
+  font-size: 0.7vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 25px */
+  letter-spacing: 0.4px;
+}
+
+.overskrift-tekst-pil {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overskrift-tekst-pil img {
+  display: block;
+  width: 1vw;
+  height: auto;
+}
+
+.overskrift-tekst-pil h2 {
+    color: #000;
+    font-family: "PP Neue Montreal";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 28.8px */
+    text-transform: uppercase;
+  }
+
+  .intro-billede {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center; 
+    display: block; 
+  }
+
+  .beskrivelse {
+    display: flex;
+    justify-content: space-between;
+    margin: 10vh 0px;
+  }
+
+  .beskrivelse h2 {
+    color: #000;
+    font-family: "PP Neue Montreal";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 28.8px */
+    text-transform: uppercase;
+  }
+
+  .beskrivelse h5 {
+    width: 30vw;
+    color: #000;
+    font-family: "PP Neue Montreal";
+    font-size: 0.7vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 25px */
+    letter-spacing: 0.4px;
+  }
+
+  .billederkol {
+display: flex;
+justify-content: space-between;
+width: 100%;
+height: auto;
+  }
+
+  .billederkol img {
+    width: 50%; /* Each image takes up half of the viewport */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: cover; /* Ensures images cover their area without stretching */
+}
+
+.videorkol {
+    display: flex;
+    gap: 50px; /* Space between videos */
+    width: 100%;
+    height: 65vh;
+}
+
+.videorkol video {
+    width: calc(50%); /* Adjust width to account for the gap */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.sidste-billede {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center; 
+    display: block; 
+    border-radius: 20px;
+
+  }
