@@ -52,14 +52,14 @@
 
 .overskrift-tekst-pil img {
   display: block;
-  width: 1vw;
+  width: 1.2vw;
   height: auto;
 }
 
 .overskrift-tekst-pil h2 {
     color: #000;
     font-family: "PP Neue Montreal";
-    font-size: 24px;
+    font-size: 1.2;
     font-style: normal;
     font-weight: 400;
     line-height: 120%; /* 28.8px */
@@ -83,7 +83,7 @@
   .beskrivelse h2 {
     color: #000;
     font-family: "PP Neue Montreal";
-    font-size: 24px;
+    font-size: 1.2vw;
     font-style: normal;
     font-weight: 400;
     line-height: 120%; /* 28.8px */
