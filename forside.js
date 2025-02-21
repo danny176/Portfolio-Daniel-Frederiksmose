@@ -1,8 +1,8 @@
 //Smooth scroll
 
 const lenis = new Lenis({
-  duration: 1, // Smooth scroll duration
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Easing function
+  duration: 1,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 });
 
 function raf(time) {
@@ -12,10 +12,9 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-// GSAP setup for the custom cursor
-gsap.set("#cursor-image", { xPercent: -75, yPercent: -25 }); // Center the cursor image
+// Svg animation på hover ved projekt billeder
+gsap.set("#cursor-image", { xPercent: -75, yPercent: -25 });
 
-// Create quickTo functions for GSAP
 let xToCursorImage = gsap.quickTo("#cursor-image", "x", {
   duration: 0.6,
   ease: "power3",
@@ -25,22 +24,21 @@ let yToCursorImage = gsap.quickTo("#cursor-image", "y", {
   ease: "power3",
 });
 
-// Select video elements
+// Vælg billede elemneter
 const video1 = document.querySelectorAll(
   "#workCase1, #workCase2, #workCase3, #workCase4"
 );
 
-// Mouse move event for the entire document
+// Følg musen
 $(document).mousemove((e) => {
-  xToCursorImage(e.pageX - 32); // Adjust based on cursor image width
-  yToCursorImage(e.pageY - 27); // Adjust based on cursor image height
+  xToCursorImage(e.pageX - 32);
+  yToCursorImage(e.pageY - 27);
 });
 
-// Handle mouse enter events on video elements
+// Event listener for mine billede containers
 video1.forEach((video) => {
   video.addEventListener("mouseenter", () => {
-    // Show and scale the cursor image
-    gsap.set("#cursor-image", { display: "block", scale: 0 }); // Set initial scale to 0
+    gsap.set("#cursor-image", { display: "block", scale: 0 });
     gsap.to("#cursor-image", {
       scale: 1,
       duration: 0.3,
@@ -51,9 +49,7 @@ video1.forEach((video) => {
     cursorTimeline.restart();
   });
 
-  // Handle mouse leave events on video elements
   video.addEventListener("mouseleave", () => {
-    // Animate the cursor image back to small size
     gsap.to("#cursor-image", {
       scale: 0,
       duration: 0.3,
@@ -64,55 +60,51 @@ video1.forEach((video) => {
   });
 });
 
-//Animation stagger link effect
+// Rullende navigations links
 
 const staggerLinks = document.querySelectorAll(".stagger-link");
 
 staggerLinks.forEach((link) => {
   const textElement = link.querySelector(".stagger-link-text");
 
-  // Split the text into characters
+  // Brug splittype til at putte spans omkring bogstaver
   const splitText = new SplitType(textElement, { types: "chars" });
 
-  // Create a GSAP timeline for the animation
   const tl = gsap.timeline({ paused: true });
 
-  // Staggered animation for each character
   tl.to(splitText.chars, {
-    y: "-120%", // Move each letter down
+    y: "-120%",
     duration: 0.4,
     ease: "power2.inOut",
     overwrite: true,
   });
 
-  // Mouse enter event to play the animation
   link.addEventListener("mouseenter", () => {
     tl.play();
   });
 
-  // Mouse leave event to reverse the animation
   link.addEventListener("mouseleave", () => {
     tl.reverse();
   });
 });
 
-//Flyt nav op med scrool
+// Flyt nav op med scroll
 gsap.to(".nav-container", {
-  y: -100, // Move upwards by 100px (adjust as needed)
+  y: -100,
   ease: "power2.in",
   scrollTrigger: {
-    trigger: ".nav-container", // Trigger animation based on the nav container
-    start: "top top", // Animation starts when the top of the nav hits the top of the viewport
-    end: "bottom top", // Animation ends when the bottom of the nav hits the top of the viewport
-    scrub: true, // Smoothly link animation to scroll
-    markers: false, // Optional: to see the start and end markers
+    trigger: ".nav-container",
+    start: "top top",
+    end: "bottom top",
+    scrub: true,
+    markers: false,
   },
 });
 
 const splitTextSocials = new SplitType(".social-text", {
   types: "words, chars",
-  wordClass: "social-word", // Each word gets wrapped in a <span class="welcome-word">
-  charClass: "social-char", // Each character gets wrapped in a <span class="welcome-char">
+  wordClass: "social-word", // Hvert ord får en <span class="welcome-word">
+  charClass: "social-char", // Hver karakter får en <span class="welcome-char">
 });
 
 gsap.fromTo(
@@ -127,39 +119,39 @@ gsap.fromTo(
     duration: 0.5,
     stagger: 0.01,
     scrollTrigger: {
-      trigger: ".footer-sec", // Trigger animation based on the nav container
-      start: "top 80%", // Animation starts when the top of the nav hits the top of the viewport
-      end: "bottom top", // Animation ends when the bottom of the nav hits the top of the viewport
-      markers: false, // Optional: to see the start and end markers
-      toggleActions: "play none none none", // Play on enter, don't reset
+      trigger: ".footer-sec", // Trigger animation baseret på nav containeren
+      start: "top 80%", // Animationen starter når toppen af nav er nået til toppen af viewporten
+      end: "bottom top", // Animationen stopper når bunden af nav er nået til toppen af viewporten
+      markers: false, // Valgfrit: for at se start og slutmarkeringer
+      toggleActions: "play none none none", // Spil når man kommer ind, ingen reset
     },
   }
 );
 
-//Pin experi
+// Pin eksperi
 
 gsap.utils.toArray(".work-flex").forEach((section, index, sections) => {
   const titleNr = section.querySelector(".title-nr");
-  const lastSection = sections[sections.length - 1]; // Select the last section
+  const lastSection = sections[sections.length - 1]; // Vælg den sidste sektion
 
-  // Create ScrollTrigger for pinning each element
+  // Opret ScrollTrigger for at pinne hvert element
   ScrollTrigger.create({
     trigger: titleNr,
-    start: "top center", // Pin when the top of title-nr hits the center of the viewport
-    end: "bottom center", // End pinning at the bottom of the section
-    pin: true, // Pin the title-nr
-    pinSpacing: false, // Prevent additional spacing after pinning
+    start: "top center", // Pin når toppen af title-nr når midten af viewporten
+    end: "bottom center", // Stop pinning ved bunden af sektionen
+    pin: true, // Pin title-nr
+    pinSpacing: false, // Forhindr ekstra spacing efter pinning
     markers: false,
 
-    // Reset position for the last element when it's unpinned
+    // Reset position for det sidste element når det bliver unpinned
     onLeave: () => {
       if (section === lastSection) {
-        // Animate the last pinned element back to its original position
+        // Animer det sidste pinned element tilbage til sin oprindelige position
         gsap.to(titleNr, {
-          y: 0, // Return to its original position
-          duration: 0.4, // Smooth animation
-          ease: "power2.in", // Easing for smooth transition
-          clearProps: "all", // Clear all GSAP properties after animation
+          y: 0, // Vend tilbage til oprindelig position
+          duration: 0.4, // Glat animation
+          ease: "power2.in", // Easing for glidende overgang
+          clearProps: "all", // Fjern alle GSAP properties efter animation
         });
       }
     },
@@ -179,31 +171,31 @@ gsap.fromTo(
     opacity: 1,
     duration: 1,
     ease: "Expo.easeOut",
-    stagger: 0.01, // Adds a delay between each character's animation
+    stagger: 0.01, // Tilføj en forsinkelse mellem hver karakter's animation
     scrollTrigger: {
-      trigger: ".work-header", // The element that triggers the animation
-      start: "bottom bottom", // When the top of the element reaches 75% of the viewport
-      end: "bottom bottom", // When the top of the element reaches 25% of the viewport
-      toggleActions: "play none none none", // Play on enter, don't reset
+      trigger: ".work-header", // Elementet der trigger animationen
+      start: "bottom bottom", // Når toppen af elementet når 75% af viewporten
+      end: "bottom bottom", // Når toppen af elementet når 25% af viewporten
+      toggleActions: "play none none none", // Spil ved indgang, ingen reset
       markers: false,
     },
   }
 );
 
-// Create the spinning animation
+// Opret den roterende animation
 gsap.to("#heroLogo", {
   scrollTrigger: {
-    trigger: ".heroLogoContainer", // The container element for the logo
-    start: "top 10%", // Start when the top of the container enters the viewport
-    end: "bottom top", // End when the bottom leaves the viewport
-    scrub: 3, // Smooth scrubbing effect
+    trigger: ".heroLogoContainer", // Container elementet for logoet
+    start: "top 10%", // Start når toppen af containeren kommer ind i viewporten
+    end: "bottom top", // Slut når bunden forsvinder ud af viewporten
+    scrub: 3, // Glat scrubbing effekt
     markers: false,
   },
-  rotation: 360, // Spin the logo 360 degrees
-  ease: "none", // Keep the animation linear
+  rotation: 360, // Spin logoet 360 grader
+  ease: "none", // Hold animationen lineær
 });
 
-//Billede hover function
+// Billede hover funktion
 
 gsap.set(".flair", { xPercent: -50, yPercent: -50 });
 
@@ -215,61 +207,61 @@ window.addEventListener("mousemove", (e) => {
   yTo(e.clientY);
 });
 
-//Hori scroll
+// Hori scroll
 
 const races = document.querySelector(".races");
 
 function getScrollAmount() {
-  let racesWidth = races.scrollWidth; // Total width of the races container
-  return racesWidth - window.innerWidth + 128; // Scrollable width
+  let racesWidth = races.scrollWidth; // Total bredde af races containeren
+  return racesWidth - window.innerWidth + 128; // Scrollbar bredde
 }
 
 const tween = gsap.to(races, {
-  x: -getScrollAmount(), // Move left by the scrollable width
+  x: -getScrollAmount(), // Flyt til venstre med scrollbar bredde
   duration: 3,
   ease: "none",
-  paused: true, // Start paused, to control when it plays
+  paused: true, // Startet pausede, for at kontrollere når det spilles
 });
 
 ScrollTrigger.create({
   trigger: ".racesWrapper",
-  start: "center center", // Start when the top of the wrapper hits the top of the viewport
-  end: () => `+=${getScrollAmount()}`, // End when the scrollable width is reached
-  pin: true, // Pin the wrapper in place
+  start: "center center", // Start når toppen af wrapperen rammer toppen af viewporten
+  end: () => `+=${getScrollAmount()}`, // Slut når scrollable bredde er nået
+  pin: true, // Pin wrapperen på plads
   animation: tween,
   scrub: 1,
   invalidateOnRefresh: true,
-  markers: false, // Set to true for debugging, remove in production
+  markers: false, // Sæt til true for debugging, fjern i produktion
 });
 
-//Color change cards / Animate pseodu element
+// Farveskift kort / Animate pseodo element
 
 ScrollTrigger.create({
   trigger: ".racesWrapper",
-  start: "center center", // Start when the wrapper hits the center of the viewport
-  end: () => `+=${getScrollAmount()}`, // End when the scrollable width is reached
+  start: "center center", // Start når wrapperen rammer center af viewporten
+  end: () => `+=${getScrollAmount()}`, // Slut når scrollable bredde er nået
   scrub: 1,
   onUpdate: (self) => {
-    const progress = self.progress; // Get normalized scroll progress (0 to 1)
+    const progress = self.progress; // Få normaliseret scroll progress (0 til 1)
     const cards = document.querySelectorAll(".card");
-    const totalCards = cards.length; // Total number of cards
+    const totalCards = cards.length; // Total antal kort
 
     cards.forEach((card, index) => {
-      const cardStart = index / totalCards; // The point at which this card's transition begins
-      const cardEnd = (index + 1) / totalCards; // The point at which this card's transition ends
+      const cardStart = index / totalCards; // Punkt hvor dette korts transition starter
+      const cardEnd = (index + 1) / totalCards; // Punkt hvor dette korts transition stopper
 
-      // If it's the first card, it should already be fully blue
+      // Hvis det er det første kort, skal det allerede være helt blåt
       if (index === 0) {
         card.style.setProperty("--pseudo-transform", "100%");
       } else if (progress >= cardStart && progress <= cardEnd) {
-        // Normalize the progress for this card
-        const localProgress = (progress - cardStart) / (cardEnd - cardStart); // Normalize scroll progress for this card
+        // Normaliser fremdrift for dette kort
+        const localProgress = (progress - cardStart) / (cardEnd - cardStart); // Normaliser scroll fremdrift for dette kort
         card.style.setProperty("--pseudo-transform", `${localProgress * 100}%`);
       } else if (progress > cardEnd) {
-        // If the scroll has passed the end of this card, make the pseudo-element fully blue
+        // Hvis scroll er gået forbi slutningen af dette kort, gør pseudeo-elementet helt blåt
         card.style.setProperty("--pseudo-transform", "100%");
       } else if (progress < cardStart) {
-        // If the scroll hasn't reached this card, reset the pseudo-element to 0%
+        // Hvis scroll ikke har nået dette kort, reset pseudeo-elementet til 0%
         card.style.setProperty("--pseudo-transform", "0%");
       }
     });
@@ -280,22 +272,22 @@ ScrollTrigger.create({
 
 const splitTextWelcome = new SplitType(".welcome-text", {
   types: "words, chars",
-  wordClass: "welcome-word", // Each word gets wrapped in a <span class="welcome-word">
-  charClass: "welcome-char", // Each character gets wrapped in a <span class="welcome-char">
+  wordClass: "welcome-word", // Hvert ord får en <span class="welcome-word">
+  charClass: "welcome-char", // Hver karakter får en <span class="welcome-char">
 });
 
 const splitTextDesigner = new SplitType(".designertekst", {
   types: "words, chars",
-  wordClass: "designer-word", // Each word gets wrapped in a <span class="welcome-word">
-  charClass: "designer-char", // Each character gets wrapped in a <span class="welcome-char">
+  wordClass: "designer-word", // Hvert ord får en <span class="welcome-word">
+  charClass: "designer-char", // Hver karakter får en <span class="welcome-char">
 });
 
-// Ensure no word-breaking within `.welcome-word`
+// Sørg for ingen ordbreaks i `.welcome-word`
 document.querySelectorAll(".welcome-word").forEach((word) => {
-  word.style.whiteSpace = "nowrap"; // Prevent word breaks for each word
+  word.style.whiteSpace = "nowrap"; // Forhindr ord-brydning for hvert ord
 });
 
-//Landing page animation intro
+// Landing page animation intro
 
 const introLogo = document.getElementById("introLogo");
 const introAnimation = document.getElementById("introAnimation");
@@ -303,18 +295,18 @@ const introAnimation = document.getElementById("introAnimation");
 // GSAP Timeline
 const introAnimationTimeline = gsap.timeline({
   onStart: () => {
-    // Lock scrolling at the start of the intro animation
+    // Lås scroll ved starten af intro animationen
     document.body.style.overflow = "hidden";
   },
 
   onComplete: () => {
-    // Skjule alle intro elementer efter complete
+    // Skjul alle intro elementer efter complete
     document.body.classList.add("intro-complete");
 
-    //Animer min herosection elementer ind my opacity
+    // Animer herosection elementer ind med opacity
     gsap.to(".herosection", {
-      opacity: 1, // Set the opacity to 1
-      duration: 0.5, // Smooth fade-in
+      opacity: 1, // Sæt opaciteten til 1
+      duration: 0.5, // Glat fade-in
       ease: "power2.out",
     });
 
@@ -332,7 +324,7 @@ const introAnimationTimeline = gsap.timeline({
       }
     );
 
-    //Animere min headlines
+    // Animere mine headlines
     gsap.fromTo(
       ".word h2, .word2 h2, #heroLogo",
       {
@@ -347,7 +339,7 @@ const introAnimationTimeline = gsap.timeline({
       }
     );
 
-    //Animere min velkommen tekst
+    // Animere min velkommen tekst
     gsap.fromTo(
       ".welcome-char",
       {
@@ -361,11 +353,11 @@ const introAnimationTimeline = gsap.timeline({
         opacity: 1,
         duration: 0.3,
         ease: "power2.out",
-        stagger: 0.003, // Adds a delay between each character's animation
+        stagger: 0.003, // Tilføj en forsinkelse mellem hver karakter's animation
       }
     );
 
-    //Animere min designer tekst
+    // Animere min designer tekst
     gsap.fromTo(
       ".designer-char, .pilforside",
       {
@@ -379,13 +371,13 @@ const introAnimationTimeline = gsap.timeline({
         opacity: 1,
         duration: 0.6,
         ease: "power2.out",
-        stagger: 0.02, // Adds a delay between each character's animation
+        stagger: 0.02, // Tilføj en forsinkelse mellem hver karakter's animation
       }
     );
   },
 });
 
-// Logo animation from the left
+// Logo animation fra venstre
 introAnimationTimeline.fromTo(
   "#introB",
   { x: "-100vw", opacity: 1 },
@@ -399,7 +391,7 @@ introAnimationTimeline.fromTo(
   "-=2"
 );
 
-// Slide the blue background up
+// Skub den blå baggrund op
 introAnimationTimeline.to(
   introAnimation,
   { y: "-100%", duration: 1.5, ease: "power4.inOut" },
@@ -423,18 +415,18 @@ gsap.fromTo(
     opacity: 1,
     duration: 1,
     ease: "Expo.easeOut",
-    stagger: 0.01, // Adds a delay between each character's animation
+    stagger: 0.01, // Tilføjer en forsinkelse mellem hver karakter animation
     scrollTrigger: {
-      trigger: ".headline-kom", // The element that triggers the animation
-      start: "bottom bottom", // When the top of the element reaches 75% of the viewport
-      end: "center center", // When the top of the element reaches 25% of the viewport
-      toggleActions: "play none none none", // Play on enter, don't reset
+      trigger: ".headline-kom", // Elementet der udløser animationen
+      start: "bottom bottom", // Når toppen af elementet når 75% af viewporten
+      end: "center center", // Når toppen af elementet når 25% af viewporten
+      toggleActions: "play none none none", // Afspil ved enter, ingen reset
       markers: false,
     },
   }
 );
 
-// Split text into spans for text effect
+// Del teksten op i spans til tekst-effekt
 function splitTextIntoSpans(selector) {
   const elements = document.querySelectorAll(selector);
 
@@ -461,30 +453,30 @@ function splitTextIntoSpans(selector) {
 
 splitTextIntoSpans(".splittexteffect");
 
-// Animate text spans
+// Animer tekst-spans
 document.querySelectorAll(".splittexteffect").forEach((h1) => {
   const spans = h1.querySelectorAll(".splittexteffect span");
 
   gsap.fromTo(
     spans,
-    { x: -100 }, // Starting position
+    { x: -100 }, // Startposition
     {
-      x: 0, // Ending position
+      x: 0, // Slutposition
       duration: 0.7,
       ease: "power1.out",
       delay: (index) => Math.random() * 0.2 + 0.1,
       scrollTrigger: {
-        trigger: ".splittexteffect", // The element that triggers the animation
-        start: "bottom bottom", // When the top of the element reaches 75% of the viewport
-        end: "center center", // When the top of the element reaches 25% of the viewport
-        toggleActions: "play none none none", // Play on enter, don't reset
+        trigger: ".splittexteffect", // Elementet der udløser animationen
+        start: "bottom bottom", // Når toppen af elementet når 75% af viewporten
+        end: "center center", // Når toppen af elementet når 25% af viewporten
+        toggleActions: "play none none none", // Afspil ved enter, ingen reset
         markers: false,
       },
     }
   );
 });
 
-//Animate number and arrow
+// Animer tal og pil
 gsap.fromTo(
   ".numb-arrow svg",
   {
@@ -498,10 +490,10 @@ gsap.fromTo(
     duration: 1,
     ease: "Expo.easeOut",
     scrollTrigger: {
-      trigger: ".numb-arrow", // The element that triggers the animation
-      start: "bottom bottom", // When the top of the element reaches 75% of the viewport
-      end: "center center", // When the top of the element reaches 25% of the viewport
-      toggleActions: "play none none none", // Play on enter, don't reset
+      trigger: ".numb-arrow", // Elementet der udløser animationen
+      start: "bottom bottom", // Når toppen af elementet når 75% af viewporten
+      end: "center center", // Når toppen af elementet når 25% af viewporten
+      toggleActions: "play none none none", // Afspil ved enter, ingen reset
       markers: false,
     },
   }
@@ -520,23 +512,23 @@ gsap.fromTo(
     duration: 1,
     ease: "Expo.easeOut",
     scrollTrigger: {
-      trigger: ".numb-arrow", // The element that triggers the animation
-      start: "bottom bottom", // When the top of the element reaches 75% of the viewport
-      end: "center center", // When the top of the element reaches 25% of the viewport
-      toggleActions: "play none none none", // Play on enter, don't reset
+      trigger: ".numb-arrow", // Elementet der udløser animationen
+      start: "bottom bottom", // Når toppen af elementet når 75% af viewporten
+      end: "center center", // Når toppen af elementet når 25% af viewporten
+      toggleActions: "play none none none", // Afspil ved enter, ingen reset
       markers: false,
     },
   }
 );
 
-// Store a reference to the animation
+// Gem en reference til animationen
 let circleAnimation = gsap.to("#circleToAnimate", {
-  rotation: 360, // Spin the logo 360 degrees
+  rotation: 360, // Drej logoet 360 grader
   ease: "none",
   repeat: -1,
   duration: 10,
   transformOrigin: "50% 50%",
-  paused: true, // Initially paused
+  paused: true, // Initialt sat på pause
 });
 
 gsap.set("#arrowToAnimate", {
@@ -551,19 +543,19 @@ gsap.set("#arrowToAnimate", {
   strokeDashoffset: 300,
 });
 
-// Create a GSAP timeline (paused initially)
+// Opret en GSAP-timeline (initialt på pause)
 let cursorTimeline = gsap.timeline({ paused: true });
 
-// Define the animation sequence
+// Definer animationens rækkefølge
 cursorTimeline
   .fromTo(
     "#tekstCirkel",
-    { x: 100, opacity: 0 }, // Start position (shifted right)
-    { x: 0, opacity: 1, duration: 0.6, ease: "power1.out" } // Move into place
+    { x: 100, opacity: 0 }, // Startposition (flyttet til højre)
+    { x: 0, opacity: 1, duration: 0.6, ease: "power1.out" } // Flyt til sin plads
   )
   // Pil animation
   .to("#arrowToAnimate", { x: 0, duration: 0.8, ease: "power2.out" }, "-=0.2")
-  .to("#arrowToAnimate", { opacity: 1, duration: 0.1 }, "-=1") // Make arrow visible before animation
+  .to("#arrowToAnimate", { opacity: 1, duration: 0.1 }, "-=1") // Gør pilen synlig før animation
   .to(
     "#arrowToAnimate",
     {
@@ -573,11 +565,10 @@ cursorTimeline
     },
     "-=0.6"
   )
-  .to("#arrowToAnimate", { fill: "#472425", duration: 0.5 }, "-=0.5") // Fill the arrow while drawing
+  .to("#arrowToAnimate", { fill: "#472425", duration: 0.5 }, "-=0.5") // Fyld pilen mens den tegnes
   .to("#arrowToAnimate", { rotation: 0, duration: 1, ease: "Expo.easeOut" });
 
-//Magnetisk knap på min forside kode
-
+// Magnetisk knap på min forside kode
 const button = document.querySelector(".knap-container-magnetisk");
 
 if (button) {
