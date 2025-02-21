@@ -1,6 +1,6 @@
 .introduktion {
   position: relative;
-  height: 120vh;
+  height: 140vh;
   width: 100%;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .tekst-intro {
-  margin-top: 15vh;
+  margin-top: 10vh;
   color: #0e0e0e;
   font-family: "PP Neue Montreal";
   font-size: 1vw;
