@@ -2,11 +2,12 @@
   margin-top: 5vh;
 }
 
-.projekt-billede-container {
+.billederkol {
   display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 50px; /* Space between videos */
+  width: 100%;
+  height: auto;
+  margin-bottom: 5vh;
 }
 
 .overskrift {
@@ -21,19 +22,19 @@
 }
 
 .projekt-billede-tekst {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: calc(50% 50%);
-  position: relative;
-  cursor: pointer;
+  width: calc(50%); /* Adjust width to account for the gap */
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .projekt-billede-tekst img {
   position: relative;
   display: block;
-  width: 46vw;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
   transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -44,34 +45,35 @@
 .billedecontainer {
   overflow: hidden;
   width: 100%;
-  height: auto;
+  height: 100%;
+  position: relative;
   border-radius: 20px;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
 }
 
 .billedecontainer .overlay-text {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -45%); /* Centers it perfectly */
-    color: white;
-    font-family: "Denim TRIAL";
-    font-size: 4vw;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%; /* 57.6px */
-    margin-bottom: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%); /* Centers it perfectly */
+  color: white;
+  font-family: "Denim TRIAL";
+  font-size: 4vw;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 57.6px */
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
 }
 
 .billedecontainer:hover img {
-    filter: blur(5px); 
+  filter: blur(5px);
 }
 
 .billedecontainer:hover .overlay-text {
-    opacity: 1; 
+  opacity: 1;
 }
 
 h3 {
@@ -101,5 +103,5 @@ h5 {
   font-style: normal;
   font-weight: 500;
   line-height: 120%; /* 16.8px */
-  margin-bottom: 25px
+  margin-bottom: 25px;
 }
