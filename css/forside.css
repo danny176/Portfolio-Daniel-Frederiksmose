@@ -654,7 +654,8 @@
 }
 
 .scroll-to-top img {
-  width: 1.5vw;
+  width: 1.5vw !important;
+  display: block;
 }
 
 .racesWrapper {
