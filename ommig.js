@@ -1,76 +1,78 @@
-//Hori scroll
+// Vandret scroll-animation
 
 const races = document.querySelector(".races");
 
+// Funktion til at beregne, hvor meget der skal scrolles
 function getScrollAmount() {
-  let racesWidth = races.scrollWidth; // Total width of the races container
-  return racesWidth - window.innerWidth + 128; // Scrollable width
+  let racesWidth = races.scrollWidth; // Den samlede bredde af races-containeren
+  return racesWidth - window.innerWidth + 128; // Den scrollbare bredde
 }
 
 const tween = gsap.to(races, {
-  x: -getScrollAmount(), // Move left by the scrollable width
+  x: -getScrollAmount(), // Flytter races-containeren til venstre med den scrollbare bredde
   duration: 3,
   ease: "none",
-  paused: true, // Start paused, to control when it plays
+  paused: true, // Starter med at være pauset, så den kun afspilles ved scroll
 });
 
 ScrollTrigger.create({
   trigger: ".racesWrapper",
-  start: "center center", // Start when the top of the wrapper hits the top of the viewport
-  end: () => `+=${getScrollAmount()}`, // End when the scrollable width is reached
-  pin: true, // Pin the wrapper in place
+  start: "center center", // Starter når toppen af wrapperen rammer midten af viewporten
+  end: () => `+=${getScrollAmount()}`, // Slutter når hele scrollområdet er passeret
+  pin: true, // Låser wrapperen fast, så kun indholdet bevæger sig
   animation: tween,
-  scrub: 1,
-  invalidateOnRefresh: true,
-  markers: false, // Set to true for debugging, remove in production
+  scrub: 1, // Gør animationen afhængig af scroll-bevægelsen
+  invalidateOnRefresh: true, // Genberegner værdier, hvis vinduet ændres
+  markers: false, // Sæt til true for debugging, fjern i produktion
 });
 
-//Color change cards / Animate pseodu element
+// Farveændring af kort / Animation af pseudo-element
 
 ScrollTrigger.create({
   trigger: ".racesWrapper",
-  start: "center center", // Start when the wrapper hits the center of the viewport
-  end: () => `+=${getScrollAmount()}`, // End when the scrollable width is reached
+  start: "center center", // Starter når wrapperen er i midten af viewporten
+  end: () => `+=${getScrollAmount()}`, // Slutter når scrollen er fuldført
   scrub: 1,
   onUpdate: (self) => {
-    const progress = self.progress; // Get normalized scroll progress (0 to 1)
+    const progress = self.progress; // Henter normaliseret scroll-progress (0 til 1)
     const cards = document.querySelectorAll(".card");
-    const totalCards = cards.length; // Total number of cards
+    const totalCards = cards.length; // Antallet af kort
 
     cards.forEach((card, index) => {
-      const cardStart = index / totalCards; // The point at which this card's transition begins
-      const cardEnd = (index + 1) / totalCards; // The point at which this card's transition ends
+      const cardStart = index / totalCards; // Startpunkt for dette korts overgang
+      const cardEnd = (index + 1) / totalCards; // Slutpunkt for dette korts overgang
 
-      // If it's the first card, it should already be fully blue
+      // Det første kort skal være helt blåt fra starten
       if (index === 0) {
         card.style.setProperty("--pseudo-transform", "100%");
       } else if (progress >= cardStart && progress <= cardEnd) {
-        // Normalize the progress for this card
-        const localProgress = (progress - cardStart) / (cardEnd - cardStart); // Normalize scroll progress for this card
+        // Normaliser progress for dette kort
+        const localProgress = (progress - cardStart) / (cardEnd - cardStart);
         card.style.setProperty("--pseudo-transform", `${localProgress * 100}%`);
       } else if (progress > cardEnd) {
-        // If the scroll has passed the end of this card, make the pseudo-element fully blue
+        // Hvis scrollen er forbi dette kort, gør pseudo-elementet helt blåt
         card.style.setProperty("--pseudo-transform", "100%");
       } else if (progress < cardStart) {
-        // If the scroll hasn't reached this card, reset the pseudo-element to 0%
+        // Hvis scrollen ikke er nået til dette kort endnu, nulstil pseudo-elementet
         card.style.setProperty("--pseudo-transform", "0%");
       }
     });
   },
 });
 
-// Musik knap afspiller
+// Musikknap afspiller
+
 const button = document.querySelector(".musikknap");
 const fraText = document.querySelector(".fra");
 const tilText = document.querySelector(".til");
 
-// GSAP timeline for text swap animation
+// GSAP-tidslinje for tekstskift animation
 const tl = gsap.timeline({ paused: true });
 
-tl.to(fraText, { y: "-100%", duration: 0.4, ease: "power2.inOut" }, 0) // Move FRA up
-  .to(tilText, { y: "0", duration: 0.4, ease: "power2.inOut" }, 0); // Move TIL to the same place as FRA
+tl.to(fraText, { y: "-100%", duration: 0.4, ease: "power2.inOut" }, 0) // Flytter FRA-teksten op
+  .to(tilText, { y: "0", duration: 0.4, ease: "power2.inOut" }, 0); // Flytter TIL-teksten til samme position som FRA
 
-// Audio logic
+// Lydfiler
 const tracks = [
   document.getElementById("audio1"),
   document.getElementById("audio2"),
@@ -78,85 +80,83 @@ const tracks = [
 ];
 
 let currentTrack = null;
-let lastTrackIndex = -1; // Variable to keep track of the last played track
+let lastTrackIndex = -1; // Holder styr på sidste afspillede track
 let isPlaying = false;
 
-// Function to pick a random track that is not the same as the last one
+// Funktion til at vælge et tilfældigt track, der ikke er det samme som det sidste
 function getRandomTrack() {
   let randomIndex;
   do {
     randomIndex = Math.floor(Math.random() * tracks.length);
-  } while (randomIndex === lastTrackIndex); // Keep picking a new one if it's the same as the last track
-  lastTrackIndex = randomIndex; // Update lastTrackIndex to the new one
+  } while (randomIndex === lastTrackIndex); // Sørger for at vælge et nyt track
+  lastTrackIndex = randomIndex; // Opdaterer sidste afspillede track
   return tracks[randomIndex];
 }
 
-// Click event to toggle music and animation
+// Klik-event til at afspille/stoppe musik og animere knappen
 button.addEventListener("click", () => {
   if (isPlaying) {
     currentTrack.pause();
     currentTrack.currentTime = 0;
     isPlaying = false;
-    tl.reverse(); // Reverse animation
+    tl.reverse(); // Reverserer animationen
   } else {
-    currentTrack = getRandomTrack(); // Get a random track that is not the same as the last
+    currentTrack = getRandomTrack(); // Vælger et nyt, tilfældigt track
     currentTrack.loop = true;
     currentTrack.play();
     isPlaying = true;
-    tl.play(); // Play animation
+    tl.play(); // Starter animationen
   }
 });
 
-//Image trail effekt på min hvem er jeg tekst
+// Billed-spor effekt på "Hvem er jeg?"-sektionen
 
-// Assuming GSAP is already linked
-const container = document.querySelector('.it-container');
-const itemsContainer = document.querySelector('.items');
-const images = ['/images/it1.png', '/images/it2.png', '/images/it3.png']; // Image paths
+const container = document.querySelector(".it-container");
+const itemsContainer = document.querySelector(".items");
+const images = ["/images/it1.png", "/images/it2.png", "/images/it3.png"]; // Stier til billeder
 
 let trailImages = [];
 let fadeOutTimeout;
 
-// Create image elements
-images.forEach(src => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.classList.add('image-trail');
-    itemsContainer.appendChild(img);
-    trailImages.push(img);
+// Opretter billed-elementer
+images.forEach((src) => {
+  const img = document.createElement("img");
+  img.src = src;
+  img.classList.add("image-trail");
+  itemsContainer.appendChild(img);
+  trailImages.push(img);
 });
 
-container.addEventListener('mouseenter', () => {
-  itemsContainer.style.display = 'block';
+// Viser billedcontaineren når musen bevæger sig ind
+container.addEventListener("mouseenter", () => {
+  itemsContainer.style.display = "block";
 });
 
-// Set initial GSAP properties
+// Sætter initiale GSAP-egenskaber
 gsap.set(trailImages, { xPercent: -50, yPercent: -50, opacity: 0, scale: 0.5 });
 
-container.addEventListener('mousemove', (e) => {
-    // Clear any existing fade-out timer
-    clearTimeout(fadeOutTimeout);
+container.addEventListener("mousemove", (e) => {
+  // Nulstil en eventuel eksisterende fade-out timer
+  clearTimeout(fadeOutTimeout);
 
-    const mouseX = e.pageX;
-    const mouseY = e.pageY;
+  const mouseX = e.pageX;
+  const mouseY = e.pageY;
 
+  gsap.to(trailImages, {
+    x: mouseX,
+    y: mouseY,
+    opacity: 1,
+    scale: 1,
+    duration: 0.3,
+    stagger: 0.1,
+  });
+
+  // Indstiller en forsinket fade-out effekt, når musen stopper med at bevæge sig
+  fadeOutTimeout = setTimeout(() => {
     gsap.to(trailImages, {
-        x: mouseX,
-        y: mouseY,
-        opacity: 1,
-        scale: 1,
-        duration: 0.3,
-        stagger: 0.1
+      opacity: 0,
+      scale: 0.5,
+      duration: 0.3,
     });
-
-    // Set a delayed fade-out after user slows down or stops moving
-    fadeOutTimeout = setTimeout(() => {
-        gsap.to(trailImages, {
-            opacity: 0,
-            scale: 0.5,
-            duration: 0.3
-        });
-    
-      }, 200); // Adjust this delay (200ms) for smoother effect
+  }, 200); // Juster denne forsinkelse (200ms) for en glattere effekt
 });
-
