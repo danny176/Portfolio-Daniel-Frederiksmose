@@ -173,7 +173,7 @@ gsap.fromTo(
   ".zero1-char",
   {
     y: 500,
-    x: -100,
+    x: -50,
     opacity: 1,
   },
   {
@@ -196,7 +196,7 @@ gsap.fromTo(
   ".zero2-char",
   {
     y: 500,
-    x: -100,
+    x: -50,
     opacity: 1,
   },
   {
@@ -238,7 +238,7 @@ gsap.fromTo(
     y: 0,
     x: 0,
     opacity: 1,
-    duration: 1,
+    duration: 0.6,
     ease: "Expo.easeOut",
     stagger: 0.02, // Tilføj en forsinkelse mellem hver karakter's animation
   }

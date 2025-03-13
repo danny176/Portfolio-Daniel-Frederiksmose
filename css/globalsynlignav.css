@@ -116,15 +116,14 @@ html {
     border-top: 1px solid var(--myred);
     margin-top: 7vw;
     padding-top: 20px;
-    margin-bottom: 0px;
     position: relative;
+    margin-bottom: 25px;
   }
 
   .logo-cr {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-bottom: 25px;
   }
 
   .logo-cr img {
@@ -135,7 +134,7 @@ html {
   .logo-cr h5 {
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 0.6vw;
+    font-size: 0.8vw;
     font-style: normal;
     font-weight: 400;
   }
@@ -184,7 +183,17 @@ html {
     position: absolute;
     bottom: 0;
     right: 0;
-    padding-bottom: 25px;
+  }
+
+  .scroll-to-top img {
+    width: 2vw;
+    height: auto;
+    display: block;
+  }
+
+  .scroll-to-top a {
+    line-height: 0;
+    font-size: 0;
   }
 
   #footerLogo {
