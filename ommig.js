@@ -160,3 +160,192 @@ container.addEventListener("mousemove", (e) => {
     });
   }, 200); // Juster denne forsinkelse (200ms) for en glattere effekt
 });
+
+//Animationer
+
+const splitTextOmmig = new SplitType("#overskrift1", {
+  types: "words, chars",
+  wordClass: "zero1-word", // Hvert ord får en <span class="welcome-word">
+  charClass: "zero1-char", // Hver karakter får en <span class="welcome-char">
+});
+
+gsap.fromTo(
+  ".zero1-char",
+  {
+    y: 500,
+    x: -100,
+    opacity: 1,
+  },
+  {
+    y: 0,
+    x: 0,
+    opacity: 1,
+    duration: 0.6,
+    ease: "power2.out",
+    stagger: 0.01, // Tilføj en forsinkelse mellem hver karakter's animation
+  }
+);
+
+const splitTextOmmig2 = new SplitType("#overskrift2", {
+  types: "words, chars",
+  wordClass: "zero2-word", // Hvert ord får en <span class="welcome-word">
+  charClass: "zero2-char", // Hver karakter får en <span class="welcome-char">
+});
+
+gsap.fromTo(
+  ".zero2-char",
+  {
+    y: 500,
+    x: -100,
+    opacity: 1,
+  },
+  {
+    y: 0,
+    x: 0,
+    opacity: 1,
+    duration: 0.6,
+    ease: "power2.out",
+    stagger: 0.01, // Tilføj en forsinkelse mellem hver karakter's animation
+  }
+);
+
+//Billede reveal animation med imagewrapper som trigger
+
+gsap.utils.toArray(".imagewrapper").forEach((imageWrapper) => {
+  gsap.utils.toArray(imageWrapper.querySelectorAll("img")).forEach((img) => {
+    gsap.from(img, {
+      opacity: 0,
+      scale: 1.1,
+      duration: 1.5,
+      ease: "Expo.easeOut",
+      scrollTrigger: {
+        trigger: img, // Triggers animation per image
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+});
+
+gsap.fromTo(
+  ".tekst-intro",
+  {
+    y: 100,
+    x: 0,
+    opacity: 0,
+  },
+  {
+    y: 0,
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: "Expo.easeOut",
+    stagger: 0.02, // Tilføj en forsinkelse mellem hver karakter's animation
+  }
+);
+
+const splitTextHvem = new SplitType(".it-container", {
+  types: "words, chars",
+  wordClass: "hvem1-word", // Hvert ord får en <span class="welcome-word">
+  charClass: "hvem1-char", // Hver karakter får en <span class="welcome-char">
+});
+
+gsap.fromTo(
+  ".hvem1-char",
+  {
+    y: 300,
+    x: -50,
+  },
+  {
+    y: 0,
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: "Expo.easeOut",
+    stagger: 0.02, // Tilføjer en forsinkelse mellem hver karakter animation
+    scrollTrigger: {
+      trigger: ".hvemerjeg", // The element that triggers the animation
+      start: "top 80%", // Starts when the top of the element reaches 80% of viewport
+      toggleActions: "play none none none", // Runs once
+      markers: false,
+    },
+  }
+);
+
+gsap.fromTo(
+  ".kreativ",
+  {
+    y: 100,
+    x: 0,
+    opacity: 0,
+  },
+  {
+    y: 0,
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: "Expo.easeOut",
+    stagger: 0.02, // Tilføj en forsinkelse mellem hver karakter's animation
+    scrollTrigger: {
+      trigger: ".kreativ", // The element that triggers the animation
+      start: "top 90%", // Starts when the top of the element reaches 80% of viewport
+      toggleActions: "play none none none", // Runs once
+      markers: false,
+    },
+  }
+);
+
+const skillsCheck = new SplitType(".headline-kom h2", {
+  types: "chars",
+  charClass: "skills-char",
+});
+
+gsap.fromTo(
+  ".skills-char",
+  {
+    y: 300,
+    x: 0,
+  },
+  {
+    y: 0,
+    x: 0,
+    opacity: 1,
+    duration: 1,
+    ease: "Expo.easeOut",
+    stagger: 0.01, // Tilføjer en forsinkelse mellem hver karakter animation
+    scrollTrigger: {
+      trigger: ".headline-kom", // Elementet der udløser animationen
+      start: "bottom bottom", // Når toppen af elementet når 75% af viewporten
+      end: "center center", // Når toppen af elementet når 25% af viewporten
+      toggleActions: "play none none none", // Afspil ved enter, ingen reset
+      markers: false,
+    },
+  }
+);
+
+const splitTextSocials = new SplitType(".social-text", {
+  types: "words, chars",
+  wordClass: "social-word", // Hvert ord får en <span class="welcome-word">
+  charClass: "social-char", // Hver karakter får en <span class="welcome-char">
+});
+
+gsap.fromTo(
+  ".social-char",
+  {
+    y: 400,
+  },
+
+  {
+    y: 0,
+    ease: "power2.out",
+    duration: 0.5,
+    stagger: 0.01,
+    scrollTrigger: {
+      trigger: ".social-text", // Trigger animation baseret på nav containeren
+      start: "top 80%", // Animationen starter når toppen af nav er nået til toppen af viewporten
+      end: "bottom top", // Animationen stopper når bunden af nav er nået til toppen af viewporten
+      markers: true, // Valgfrit: for at se start og slutmarkeringer
+      toggleActions: "play none none none", // Spil når man kommer ind, ingen reset
+    },
+  }
+);

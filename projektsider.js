@@ -60,18 +60,39 @@ gsap
 //Billede reveal animation med imagewrapper som trigger
 
 gsap.utils.toArray(".imagewrapper").forEach((imageWrapper) => {
-  gsap.from(imageWrapper.querySelector("img"), {
-    opacity: 0,
-    scale: 1.1,
-    duration: 1.5,
-    ease: "Expo.easeOut",
-    scrollTrigger: {
-      trigger: imageWrapper, // Triggers the animation on this specific element
-      start: "top 80%", // Start animation when the top of the element reaches 80% of the viewport
-      toggleActions: "play none none none", // Plays once when scrolling down
-    },
+  gsap.utils.toArray(imageWrapper.querySelectorAll("img")).forEach((img) => {
+    gsap.from(img, {
+      opacity: 0,
+      scale: 1.1,
+      duration: 1.5,
+      ease: "Expo.easeOut",
+      scrollTrigger: {
+        trigger: img, // Triggers animation per image
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
   });
 });
+
+//Video reveal animation med imagewrapper som trigger
+
+gsap.utils.toArray(".imagewrapper").forEach((imageWrapper) => {
+  gsap.utils.toArray(imageWrapper.querySelectorAll("video")).forEach((video) => {
+    gsap.from(video, {
+      opacity: 0,
+      scale: 1.1,
+      duration: 1.5,
+      ease: "Expo.easeOut",
+      scrollTrigger: {
+        trigger: video, // Triggers animation per image
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+  });
+});
+
 
 //Pil animation på hover
 

@@ -21,7 +21,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="ommig.js" defer></script>
+    <script src="projektsider.js" defer></script>
     <script src="global.js" defer></script>
   </head>
   <body id="scrollToTop">
@@ -58,7 +58,9 @@
     </div>
 
     <section>
+      <div class="overskrift-container">
       <h1 class="overskrift">Steeno Museet</h1>
+      </div>
       <div class="info-kolonner">
         <div class="overskrift-tekst">
           <h2>Beskrivelse</h2>
@@ -82,12 +84,16 @@
         </div>
         <a href="https://astroteket.danielfrederiksmose.dk/" class="overskrift-tekst-pil">
           <h2>LIVE SIDE</h2>
-          <img src="icons/livesidearrow.svg" alt="pil" />
+          <div class="arrow-wrapper">
+            <img src="icons/livesidearrow.svg" alt="pil" class="arrow first-arrow" />
+            <img src="icons/livesidearrow.svg" alt="pil" class="arrow second-arrow" />
+          </div>
       </a>
       </div>
     </section>
-
+    <div class="imagewrapper">
     <img class="intro-billede" src="images/Steeno assets/steenomock.png" alt="" />
+    </div>
 
     <div class="beskrivelse">
       <h2>Formål</h2>
@@ -100,9 +106,11 @@
       </h5>
     </div>
 
+    <div class="imagewrapper">
     <div class="billederkol">
       <img src="images/Steeno assets/Start side quiz billede.png" alt="" />
       <img src="images/Steeno assets/spærgsmål.png" alt="" />
+    </div>
     </div>
 
     <div class="beskrivelse">
@@ -115,6 +123,7 @@
       </h5>
     </div>
 
+    <div class="imagewrapper">
     <div class="videorkol">
       <video autoplay muted loop>
         <source
@@ -129,8 +138,10 @@
         />
       </video>
     </div>
-
+  </div>
+  <div class="imagewrapper">
     <img class="sidste-billede" src="images/Steeno assets/infografik.png" alt="infografik">
+    </div>
 
         <!-- Footer -->
 

@@ -17,7 +17,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="ommig.js" defer></script>
+    <script src="projektsider.js" defer></script>
     <script src="global.js" defer></script>
   </head>
   <body id="scrollToTop">
@@ -25,17 +25,17 @@
     <div class="nav-container">
       <nav class="navbar">
         <div class="firmanavn-hamburger">
-        <a href="index.html"
-          ><div class="company-name">
-            <img src="/images/danielFLogo.svg" alt="df-logo" /></div
-        ></a>
-        <div class="hamburger" onclick="toggleMenu()">
-          <div id="nav-icon1">
-            <span></span>
-            <span></span>
-            <span></span>
+          <a href="index.html"
+            ><div class="company-name">
+              <img src="/images/danielFLogo.svg" alt="df-logo" /></div
+          ></a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <div id="nav-icon1">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
-        </div>
         </div>
         <div class="right-links" id="menu">
           <a href="projektoversigt.html" class="stagger-link">
@@ -54,7 +54,9 @@
     </div>
 
     <section>
-      <h1 class="overskrift">MAK</h1>
+      <div class="overskrift-container">
+        <h1 class="overskrift">MAK</h1>
+      </div>
       <div class="info-kolonner">
         <div class="overskrift-tekst">
           <h2>Beskrivelse</h2>
@@ -82,13 +84,24 @@
           class="overskrift-tekst-pil"
         >
           <h2>LIVE SIDE</h2>
-          <img src="icons/livesidearrow.svg" alt="pil" />
+          <div class="arrow-wrapper">
+            <img
+              src="icons/livesidearrow.svg"
+              alt="pil"
+              class="arrow first-arrow"
+            />
+            <img
+              src="icons/livesidearrow.svg"
+              alt="pil"
+              class="arrow second-arrow"
+            />
+          </div>
         </a>
       </div>
     </section>
-
-    <img class="intro-billede" src="images/MAK assets/introbil.png" alt="" />
-
+    <div class="imagewrapper">
+      <img class="intro-billede" src="images/MAK assets/introbil.png" alt="" />
+    </div>
     <div class="beskrivelse">
       <h2>Formål</h2>
       <h5>
@@ -98,10 +111,11 @@
         udvikle en sammenhængende visuel identitet blev en stor del af opgaven.
       </h5>
     </div>
-
+    <div class="imagewrapper">
     <div class="billederkol">
       <img src="images/MAK assets/Primær persona 1 (A).png" alt="" />
       <img src="images/MAK assets/Sekundær persona 2 (D).png" alt="" />
+    </div>
     </div>
 
     <div class="beskrivelse">
@@ -112,17 +126,19 @@
         værdi for brugerne og Mohammads nye målgruppe.
       </h5>
     </div>
-
+    <div class="imagewrapper">
     <div class="billederkol">
       <img src="images/MAK assets/logo.png" alt="" />
       <img src="images/MAK assets/logo 2.png" alt="" />
     </div>
-
+    </div>
+    <div class="imagewrapper">
     <img
       class="sidste-billede"
       src="images/MAK assets/Moodboard.png"
       alt="infografik"
     />
+    </div>
 
     <div class="beskrivelse">
       <h2>Design</h2>
@@ -131,41 +147,47 @@
         mockups, skitser og en design manual.
       </h5>
     </div>
-
+    <div class="imagewrapper">
     <div class="billederkol">
       <img src="images/MAK assets/logo design.png" alt="" />
       <img src="images/MAK assets/Typografi.png" alt="" />
     </div>
-
+    </div>
+    <div class="imagewrapper">
     <div class="billederkolmobiler">
       <img src="images/MAK assets/mobil mock 1.png" alt="" />
       <img src="images/MAK assets/mobil mock 2.png" alt="" />
     </div>
+    </div>
 
-        <!-- Footer -->
+    <!-- Footer -->
 
-        <div class="footer-sec">
-          <div class="logo-cr">
-            <img src="/images/footerLogo.svg" alt="footerLogoDf" />
-            <h5>COPYRIGHT @ DANIEL FREDERIKSMOSE</h5>
-          </div>
-          <div class="social-columns">
-            <div class="socials-webnav">
-              <h4>Menu</h4>
-              <a href="projektoversigt.html">Projekter</a>
-              <a href="ommig.html">Om mig</a>
-              <a href="kontakt.html">Kontakt</a>
-            </div>
-            <div class="social-links">
-              <h4>Socials</h4>
-              <a href="https://www.instagram.com/danielfrederiksmose/">Instagram</a>
-              <a href="https://www.linkedin.com/in/daniel-frederiksmose-webdesign/">LinkedIn</a>
-              <a href="https://www.facebook.com/profile.php?id=100000495105136">Facebook</a>
-            </div>
-          </div>
-          <div class="scroll-to-top">
-            <a href="#scrollToTop"><img src="images/arrow.svg" alt="" /></a>
-          </div>
+    <div class="footer-sec">
+      <div class="logo-cr">
+        <img src="/images/footerLogo.svg" alt="footerLogoDf" />
+        <h5>COPYRIGHT @ DANIEL FREDERIKSMOSE</h5>
+      </div>
+      <div class="social-columns">
+        <div class="socials-webnav">
+          <h4>Menu</h4>
+          <a href="projektoversigt.html">Projekter</a>
+          <a href="ommig.html">Om mig</a>
+          <a href="kontakt.html">Kontakt</a>
         </div>
-      </body>
-    </html>
+        <div class="social-links">
+          <h4>Socials</h4>
+          <a href="https://www.instagram.com/danielfrederiksmose/">Instagram</a>
+          <a href="https://www.linkedin.com/in/daniel-frederiksmose-webdesign/"
+            >LinkedIn</a
+          >
+          <a href="https://www.facebook.com/profile.php?id=100000495105136"
+            >Facebook</a
+          >
+        </div>
+      </div>
+      <div class="scroll-to-top">
+        <a href="#scrollToTop"><img src="images/arrow.svg" alt="" /></a>
+      </div>
+    </div>
+  </body>
+</html>

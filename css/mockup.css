@@ -10,9 +10,19 @@
   border-bottom: 1px solid black;
 }
 
+.imagewrapper {
+  overflow: hidden;
+  border-radius: 20px;
+} 
+
+.overskrift-container {
+  overflow: hidden;
+}
+
 .info-kolonner {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   margin-top: 2vh;
   margin-bottom: 10vh;
 }
@@ -46,17 +56,32 @@
 }
 
 .overskrift-tekst-pil {
-  display: flex;
-  gap: 15px;
-  align-items: flex-start;
   opacity: 0;
   pointer-events: none;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+  overflow: hidden; /* Prevents extra arrows from being visible */
 }
 
 .overskrift-tekst-pil img {
   display: block;
-  width: 1vw;
+  width: 0.9vw;
   height: auto;
+}
+
+.arrow-wrapper {
+  position: relative;
+  width: 0.9vw;
+  height: 0.9vw;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: none; /* GSAP will handle animations */
+  padding-bottom: 15px;
 }
 
 .overskrift-tekst-pil h2 {

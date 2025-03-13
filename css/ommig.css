@@ -38,8 +38,13 @@
 
 .it-container {
   position: relative;
-  width: 100%;
+  display: inline-block;
   height: auto;
+  overflow: hidden;
+  cursor: none;
+}
+
+.overskrift-container {
   overflow: hidden;
 }
 
