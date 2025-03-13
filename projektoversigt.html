@@ -25,13 +25,23 @@
     <script src="global.js" defer></script>
   </head>
   <body id="scrollToTop">
+    <!-- nav bar -->
     <div class="nav-container">
       <nav class="navbar">
-        <a href="index.html"
-          ><div class="company-name">
-            <img src="/images/danielFLogo.svg" alt="df-logo" /></div
-        ></a>
-        <div class="right-links">
+        <div class="firmanavn-hamburger">
+          <a href="index.html"
+            ><div class="company-name">
+              <img src="/images/danielFLogo.svg" alt="df-logo" /></div
+          ></a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <div id="nav-icon1">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="right-links" id="menu">
           <a href="projektoversigt.html" class="stagger-link">
             <span class="stagger-link-text">Projekter,</span>
           </a>
@@ -49,55 +59,73 @@
 
     <section class="projekt-oversigt">
       <h2 class="overskrift">(MINE PROJEKTER)</h2>
-        <div class="billederkol">
-          <div class="projekt-billede-tekst">
-            <div class="billedecontainer">
-            <a href="steenoprojekt.html">
-              <img src="/images/steno mock.png" alt="stenomock" />
-              <div class="overlay-text">Se projekt</div>
-            </a>
-          </div>
-            <h4>Immersive experience</h4>
-            <h3>Steeno</h3>
-            <h5>Interaktiv quiz udviklet for Steeno Museet</h5>
-          </div>
-          <div class="projekt-billede-tekst">
-            <div class="billedecontainer">
-            <a href="makprojekt.html">
-              <img src="/images/MAk mock up laptop.png" alt="stenomock" />
-              <div class="overlay-text">Se projekt</div>
-            </a>
-          </div>
-            <h4>Immersive experience</h4>
-            <h3>Steeno</h3>
-            <h5>Interaktiv quiz udviklet for Steeno Museet</h5>
-          </div>
-        </div>
-        <div class="billederkol">
+      <div class="billederkol">
         <div class="projekt-billede-tekst">
           <div class="billedecontainer">
-          <a href="zerobuzzprojekt.html">
-            <img src="/images/zb mock.png" alt="stenomock" />
-            <div class="overlay-text">Se projekt</div>
-          </a>
-        </div>
+            <a href="steenoprojekt.html">
+              <img
+                id="projektreveal"
+                src="/images/steno mock.png"
+                alt="stenomock"
+              />
+              <div class="overlay-text">Se projekt</div>
+            </a>
+          </div>
           <h4>Immersive experience</h4>
           <h3>Steeno</h3>
           <h5>Interaktiv quiz udviklet for Steeno Museet</h5>
         </div>
         <div class="projekt-billede-tekst">
           <div class="billedecontainer">
-          <a href="mockupprojekt.html">
-            <img src="/images/nikemock.png" alt="stenomock" />
-            <div class="overlay-text">Se projekt</div>
-          </a>
+            <a href="makprojekt.html">
+              <img
+                id="projektreveal"
+                src="/images/MAk mock up laptop.png"
+                alt="stenomock"
+              />
+              <div class="overlay-text">Se projekt</div>
+            </a>
+          </div>
+          <h4>Immersive experience</h4>
+          <h3>Steeno</h3>
+          <h5>Interaktiv quiz udviklet for Steeno Museet</h5>
         </div>
+      </div>
+      <div id="triggerclass" class="billederkol">
+        <div class="projekt-billede-tekst">
+          <div class="billedecontainer">
+            <a href="zerobuzzprojekt.html">
+              <img
+                id="projektreveal2"
+                src="/images/zb mock.png"
+                alt="stenomock"
+              />
+              <div class="overlay-text">Se projekt</div>
+            </a>
+          </div>
+          <h4>Immersive experience</h4>
+          <h3>Steeno</h3>
+          <h5>Interaktiv quiz udviklet for Steeno Museet</h5>
+        </div>
+        <div class="projekt-billede-tekst">
+          <div class="billedecontainer">
+            <a href="mockupprojekt.html">
+              <img
+                id="projektreveal2"
+                src="/images/nikemock.png"
+                alt="stenomock"
+              />
+              <div class="overlay-text">Se projekt</div>
+            </a>
+          </div>
           <h4>Immersive experience</h4>
           <h3>Steeno</h3>
           <h5>Interaktiv quiz udviklet for Steeno Museet</h5>
         </div>
       </div>
     </section>
+
+    <!-- Footer -->
 
     <div class="footer-sec">
       <div class="logo-cr">
@@ -107,19 +135,24 @@
       <div class="social-columns">
         <div class="socials-webnav">
           <h4>Menu</h4>
-          <a href="#">Projekter</a>
-          <a href="#">Om mig</a>
-          <a href="#">Kontakt</a>
+          <a href="projektoversigt.html">Projekter</a>
+          <a href="ommig.html">Om mig</a>
+          <a href="kontakt.html">Kontakt</a>
         </div>
+        <img id="footerLogo" src="/images/logo vector.svg" alt="dfLogo" />
         <div class="social-links">
           <h4>Socials</h4>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Facebook</a>
+          <a href="https://www.instagram.com/danielfrederiksmose/">Instagram</a>
+          <a href="https://www.linkedin.com/in/daniel-frederiksmose-webdesign/"
+            >LinkedIn</a
+          >
+          <a href="https://www.facebook.com/profile.php?id=100000495105136"
+            >Facebook</a
+          >
         </div>
       </div>
       <div class="scroll-to-top">
-        <a href="#scrollToTop"><img src="/images/arrow.svg" alt="" /></a>
+        <a href="#scrollToTop"><img src="images/arrow.svg" alt="" /></a>
       </div>
     </div>
   </body>

@@ -57,131 +57,368 @@ html {
   font-size: 16px;
 }
 
-body {
-  background-color: #f8f9f9;
-  margin: 0px 64px;
+@media (min-width: 1200px) {
+  body {
+    background-color: #f8f9f9;
+    margin: 0px 64px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    max-width: 2560px;
+  }
+
+  .nav-container {
+    position: relative;
+    top: 0;
+    z-index: 1;
+  }
+
+  .right-links a {
+    font-family: "Denim TRIAL";
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+  .right-links img {
+    display: block;
+    width: 15px;
+    height: auto;
+  }
+
+  .company-name img {
+    display: block;
+    width: 180px;
+    height: auto;
+  }
+
+  .right-links {
+    position: relative;
+    display: flex;
+    gap: 5px;
+  }
+  .stagger-link {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+  }
+
+  .stagger-link-text {
+    text-shadow: 0px 1.2em 0px var(--Almost-black);
+    line-height: 1;
+  }
+
+  .footer-sec {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--myred);
+    margin-top: 7vw;
+    padding-top: 20px;
+    margin-bottom: 0px;
+    position: relative;
+  }
+
+  .logo-cr {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 25px;
+  }
+
+  .logo-cr img {
+    width: 35vw;
+    height: auto;
+  }
+
+  .logo-cr h5 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 0.6vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .socials-webnav {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .social-columns {
+    display: flex;
+    gap: 40px;
+  }
+
+  .socials-webnav a:hover,
+  .social-links a:hover {
+    text-decoration: underline var(--Almost-black);
+  }
+
+  .socials-webnav h4,
+  .social-links h4 {
+    padding-bottom: 5px;
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .social-columns a {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .scroll-to-top {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 25px;
+  }
+
+  #footerLogo {
+    display: none;
+  }
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 0px;
-  max-width: 2560px;
-}
+@media (max-width: 1199px) {
+  .firmanavn-hamburger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
 
-.nav-container {
-  position: relative;
-  top: 0;
-  z-index: 1;
-}
+  body {
+    background-color: #f8f9f9;
+    padding: 0px 15px;
+  }
 
-.right-links a {
-  font-family: "Denim TRIAL";
-  font-size: 1.3rem;
-  font-weight: 500;
-}
-.right-links img {
-  display: block;
-  width: 15px;
-  height: auto;
-}
+  .nav-container {
+    position: relative;
+    top: 0;
+    z-index: 1;
+    opacity: 1;
+  }
 
-.company-name img {
-  display: block;
-  width: 180px;
-  height: auto;
-}
+  .hamburger {
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+  }
 
-.right-links {
-  position: relative;
-  display: flex;
-  gap: 5px;
-}
-.stagger-link {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-}
+  #nav-icon1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    position: relative;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+  }
 
-.stagger-link-text {
-  text-shadow: 0px 1.2em 0px var(--Almost-black);
-  line-height: 1;
-}
+  #nav-icon1 span {
+    display: block;
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background: #000000;
+    border-radius: 5px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+  }
 
-.footer-sec {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid var(--myred);
-  margin-top: 7vw;
-  padding-top: 20px;
-  margin-bottom: 25px;
-  position: relative;
-}
+  #nav-icon1 span:nth-child(1) {
+    top: 0px;
+  }
 
-.logo-cr {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding-bottom: 25px;
-}
+  #nav-icon1 span:nth-child(2) {
+    top: 12px;
+  }
 
-.logo-cr img {
-  width: 35vw;
-  height: auto;
-}
+  #nav-icon1 span:nth-child(3) {
+    top: 24px;
+  }
 
-.logo-cr h5 {
-  color: var(--Almost-black);
-  font-family: "Denim TRIAL";
-  font-size: 0.6vw;
-  font-style: normal;
-  font-weight: 400;
-}
+  #nav-icon1.open span:nth-child(1) {
+    top: 12px;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
 
-.socials-webnav {
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-}
+  #nav-icon1.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
 
-.social-links {
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-}
+  #nav-icon1.open span:nth-child(3) {
+    top: 12px;
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -o-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+  }
 
-.social-columns {
-  display: flex;
-  gap: 40px;
-}
+  .navbar {
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.socials-webnav a:hover,
-.social-links a:hover {
-  text-decoration: underline var(--Almost-black);
-}
+  .right-links {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: -15px;
+    width: calc(100% + 30px);
+    height: 100vh;
+    background: #f8f9f9;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    transform: translateX(-100%);
+  }
 
-.socials-webnav h4,
-.social-links h4 {
-  padding-bottom: 5px;
-  color: var(--Almost-black);
-  font-family: "Denim TRIAL";
-  font-size: 0.8vw;
-  font-style: normal;
-  font-weight: 500;
-}
+  .right-links a {
+    font-family: "Denim TRIAL";
+    font-size: 2rem;
+    font-weight: 500;
+    display: flex;
+  }
 
-.social-columns a {
-  color: var(--Almost-black);
-  font-family: "Denim TRIAL";
-  font-size: 0.8vw;
-  font-style: normal;
-  font-weight: 400;
-}
+  .hamburger {
+    display: flex;
+  }
 
-.scroll-to-top {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-bottom: 25px;
+  .right-links.active {
+    transform: translateX(0);
+  }
+
+  .company-name img {
+    display: block;
+    width: 160px;
+    height: auto;
+  }
+
+  .footer-sec {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    gap: 50px;
+    border-top: 1px solid var(--myred);
+    margin-top: 7vw;
+    padding-top: 20px;
+    margin-bottom: 5px;
+    position: relative;
+  }
+
+  .logo-cr {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 15px;
+  }
+
+  .logo-cr img {
+    width: 50vw;
+    height: auto;
+  }
+
+  .logo-cr h5 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .socials-webnav {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+  }
+
+  .social-columns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .socials-webnav a:hover,
+  .social-links a:hover {
+    text-decoration: underline var(--Almost-black);
+  }
+
+  .socials-webnav h4,
+  .social-links h4 {
+    padding-bottom: 5px;
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .social-columns a {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 3.5vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .scroll-to-top {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 25px;
+  }
+
+  .scroll-to-top img {
+    width: 8vw;
+  }
+
+  #footerLogo {
+    width: 20vw;
+    height: auto;
+  }
 }

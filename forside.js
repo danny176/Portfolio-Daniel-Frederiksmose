@@ -1,4 +1,12 @@
-//Smooth scroll
+function runScript() {
+  if (window.matchMedia("(max-width: 700px)").matches) {
+      console.log("JavaScript disabled for small screens");
+      return; // Stop script execution
+  }
+
+  // Your entire JavaScript code goes here
+  console.log("JavaScript is running");
+  //Smooth scroll
 
 const lenis = new Lenis({
   duration: 1,
@@ -536,7 +544,7 @@ gsap.set("#arrowToAnimate", {
   rotation: 45,
   x: 25,
   transformOrigin: "50% 50%",
-  stroke: "#472425",
+  stroke: "#141414",
   strokeWidth: 5,
   fill: "none",
   strokeDasharray: 300,
@@ -565,7 +573,7 @@ cursorTimeline
     },
     "-=0.6"
   )
-  .to("#arrowToAnimate", { fill: "#472425", duration: 0.5 }, "-=0.5") // Fyld pilen mens den tegnes
+  .to("#arrowToAnimate", { fill: "#141414", duration: 0.5 }, "-=0.5") // Fyld pilen mens den tegnes
   .to("#arrowToAnimate", { rotation: 0, duration: 1, ease: "Expo.easeOut" });
 
 // Magnetisk knap på min forside kode
@@ -594,3 +602,133 @@ if (button) {
     });
   });
 }
+
+  // Example: A function that would normally run
+  function myFeature() {
+      console.log("Feature is active!");
+  }
+
+  myFeature();
+
+  // Other event listeners, functions, etc.
+}
+
+// Run on page load
+runScript();
+
+// Listen for screen size changes and reload the script if necessary
+window.addEventListener("resize", () => {
+  runScript();
+  location.reload(); // Optional: Reload the page to fully disable JS features when resizing
+});
+
+// Landing page animation intro
+
+const introLogo = document.getElementById("introLogo");
+const introAnimation = document.getElementById("introAnimation");
+
+// GSAP Timeline
+const introAnimationTimeline = gsap.timeline({
+  onStart: () => {
+    // Lås scroll ved starten af intro animationen
+    document.body.style.overflow = "hidden";
+  },
+
+  onComplete: () => {
+    // Skjul alle intro elementer efter complete
+    document.body.classList.add("intro-complete");
+
+    // Animer herosection elementer ind med opacity
+    gsap.to(".herosection", {
+      opacity: 1, // Sæt opaciteten til 1
+      duration: 0.5, // Glat fade-in
+      ease: "power2.out",
+    });
+
+    gsap.fromTo(
+      ".nav-container",
+      {
+        y: -100,
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: "power4.Out", // Glat easing
+      }
+    );
+
+    // Animere mine headlines
+    gsap.fromTo(
+      ".word h2, .word2 h2, #heroLogo",
+      {
+        y: 100,
+        x: 20,
+      },
+      {
+        y: 0,
+        x: 0, // Slutposition (oprindelig placering)
+        duration: 0.6,
+        ease: "power1.inOut", // Glat easing
+      }
+    );
+
+    // Animere min velkommen tekst
+    gsap.fromTo(
+      ".welcome-char",
+      {
+        y: 110,
+        x: 0,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        x: 0,
+        opacity: 1,
+        duration: 0.3,
+        ease: "power2.out",
+        stagger: 0.003, // Tilføj en forsinkelse mellem hver karakter's animation
+      }
+    );
+
+    // Animere min designer tekst
+    gsap.fromTo(
+      ".designer-char, .pilforside",
+      {
+        y: 100,
+        x: 0,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        x: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.02, // Tilføj en forsinkelse mellem hver karakter's animation
+      }
+    );
+  },
+});
+
+// Logo animation fra venstre
+introAnimationTimeline.fromTo(
+  "#introB",
+  { x: "-100vw", opacity: 1 },
+  { x: "0", opacity: 1, duration: 2, ease: "Expo.easeOut" }
+);
+
+introAnimationTimeline.fromTo(
+  "#introA",
+  { x: "100vw", opacity: 1 },
+  { x: "0", opacity: 1, duration: 2, ease: "Expo.easeOut" },
+  "-=2"
+);
+
+// Skub den blå baggrund op
+introAnimationTimeline.to(
+  introAnimation,
+  { y: "-100%", duration: 1.5, ease: "power4.inOut" },
+  "+=0.5"
+);

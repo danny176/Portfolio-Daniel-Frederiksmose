@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Daniel Frederiksmose Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="/icons/favicon.png">
     <link rel="stylesheet" href="css/globalsynlignav.css" />
     <link rel="stylesheet" href="css/zerobuzz.css" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -21,41 +22,54 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="ommig.js" defer></script>
+    <script src="projektsider.js" defer></script>
     <script src="global.js" defer></script>
   </head>
   <body id="scrollToTop">
     <div class="nav-container">
-      <nav class="navbar">
-        <a href="index.html"
-          ><div class="company-name">
-            <img src="/images/danielFLogo.svg" alt="df-logo" /></div
-        ></a>
-        <div class="right-links">
-          <a href="projektoversigt.html" class="stagger-link">
-            <span class="stagger-link-text">Projekter,</span>
-          </a>
+      <!-- nav bar -->
+      <div class="nav-container">
+        <nav class="navbar">
+          <div class="firmanavn-hamburger">
+          <a href="index.html"
+            ><div class="company-name">
+              <img src="/images/danielFLogo.svg" alt="df-logo" /></div
+          ></a>
+          <div class="hamburger" onclick="toggleMenu()">
+            <div id="nav-icon1">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          </div>
+          <div class="right-links" id="menu">
+            <a href="projektoversigt.html" class="stagger-link">
+              <span class="stagger-link-text">Projekter,</span>
+            </a>
 
-          <a href="ommig.html" class="stagger-link">
-            <span class="stagger-link-text">Om mig,</span>
-          </a>
+            <a href="ommig.html" class="stagger-link">
+              <span class="stagger-link-text">Om mig,</span>
+            </a>
 
-          <a href="kontakt.html" class="stagger-link">
-            <span class="stagger-link-text">Kontakt,</span>
-          </a>
-        </div>
-      </nav>
-    </div>
+            <a href="kontakt.html" class="stagger-link">
+              <span class="stagger-link-text">Kontakt,</span>
+            </a>
+          </div>
+        </nav>
+      </div>
 
     <section>
+      <div class="overskrift-container">
       <h1 class="overskrift">Zerobuzz</h1>
+    </div>
       <div class="info-kolonner">
         <div class="overskrift-tekst">
           <h2>Beskrivelse</h2>
           <h5>
             Til 1. semester eksamen, skulle jeg udvikle en hjemmeside til det
             fiktive mikrobryggeri Zerobuzz. Mit mål var at gøre alkoholfri øl
-            sejt, og prøve at tale til den yngre befolkning.
+            sejt, og prøve at tale til den yngre del af befolkningen.
           </h5>
         </div>
         <div class="overskrift-tekst">
@@ -71,17 +85,22 @@
           class="overskrift-tekst-pil"
         >
           <h2>LIVE SIDE</h2>
-          <img src="icons/livesidearrow.svg" alt="pil" />
+          <div class="arrow-wrapper">
+            <img src="icons/livesidearrow.svg" alt="pil" class="arrow first-arrow" />
+            <img src="icons/livesidearrow.svg" alt="pil" class="arrow second-arrow" />
+          </div>
         </a>
       </div>
     </section>
 
+    <div class="imagewrapper2">
     <img
+      id="imagerevealdanny"
       class="intro-billede"
       src="images/Zerobuzz assets/Imprint.png"
       alt=""
     />
-
+  </div>
     <div class="beskrivelse">
       <h2>Formål</h2>
       <h5>
@@ -90,34 +109,40 @@
         indblandet.
       </h5>
     </div>
-
+    <div class="imagewrapper">
     <img
+    id="revealimageproj"
       class="intro-billede"
       src="images/Zerobuzz assets/Mock up vision side.png"
       alt=""
     />
-
+</div>
     <div class="beskrivelse">
       <h2>Product design</h2>
       <h5>
         Det var vigtigt for mig at øldåserne så indbydende og moderne ud. Jeg
         drog derfor inspiration fra andre ciders og RTD drikke på markedet, som
-        i forvejen blev nydt i stor grad af den unge del af befolkning.
+        i forvejen blev nydt i stor grad af den unge del af befolkningen.
       </h5>
     </div>
-
+    <div class="imagewrapper">
     <img
       class="intro-billede"
       src="images/Zerobuzz assets/mock 2.png"
       alt=""
     />
+    </div>
 
+    <div class="imagewrapper">
     <img
     class="intro-billedecans"
     src="images/Zerobuzz assets/øl dåser.png"
     alt=""
   />
+  </div>
 
+
+            <!-- Footer -->
 
     <div class="footer-sec">
       <div class="logo-cr">
@@ -127,19 +152,19 @@
       <div class="social-columns">
         <div class="socials-webnav">
           <h4>Menu</h4>
-          <a href="#">Projekter</a>
-          <a href="#">Om mig</a>
-          <a href="#">Kontakt</a>
+          <a href="projektoversigt.html">Projekter</a>
+          <a href="ommig.html">Om mig</a>
+          <a href="kontakt.html">Kontakt</a>
         </div>
         <div class="social-links">
           <h4>Socials</h4>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Facebook</a>
+          <a href="https://www.instagram.com/danielfrederiksmose/">Instagram</a>
+          <a href="https://www.linkedin.com/in/daniel-frederiksmose-webdesign/">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=100000495105136">Facebook</a>
         </div>
       </div>
       <div class="scroll-to-top">
-        <a href="#scrollToTop"><img src="/images/arrow.svg" alt="" /></a>
+        <a href="#scrollToTop"><img src="images/arrow.svg" alt="" /></a>
       </div>
     </div>
   </body>

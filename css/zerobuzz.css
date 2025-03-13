@@ -1,5 +1,5 @@
 .overskrift {
-  margin-top: 10vh;
+  margin-top: 5vh;
   color: #0e0e0e;
   font-family: "Denim TRIAL";
   font-size: 10vw;
@@ -9,16 +9,31 @@
   border-bottom: 1px solid black;
 }
 
+.overskrift-container {
+  overflow: hidden;
+}
+
+.imagewrapper, .imagewrapper2 {
+  overflow: hidden;
+  border-radius: 20px;
+} 
+
+#imagerevealdanny {
+  opacity: 0;
+}
+
 .info-kolonner {
   display: flex;
   justify-content: space-between;
   margin-top: 2vh;
   margin-bottom: 10vh;
+  align-items: flex-start;
 }
 
 .overskrift-tekst {
   display: flex;
   flex-direction: column;
+  height: auto;
   gap: 10px;
 }
 
@@ -45,15 +60,31 @@
 }
 
 .overskrift-tekst-pil {
-  display: flex;
+  display: inline-flex;
+  flex-wrap: wrap;
   gap: 15px;
-  align-items: flex-start;
+  align-items: center;
+  overflow: hidden; /* Prevents extra arrows from being visible */
 }
 
 .overskrift-tekst-pil img {
   display: block;
-  width: 1vw;
+  width: 0.9vw;
   height: auto;
+}
+
+.arrow-wrapper {
+  position: relative;
+  width: 0.9vw;
+  height: 0.9vw;
+}
+
+.arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: none; /* GSAP will handle animations */
+  padding-bottom: 15px;
 }
 
 .overskrift-tekst-pil h2 {
@@ -62,7 +93,6 @@
   font-size: 24px;
   font-style: normal;
   font-weight: 400;
-  line-height: 120%; /* 28.8px */
   text-transform: uppercase;
 }
 

@@ -21,13 +21,23 @@
     <script src="global.js" defer></script>
   </head>
   <body id="scrollToTop">
+    <!-- nav bar -->
     <div class="nav-container">
       <nav class="navbar">
+        <div class="firmanavn-hamburger">
         <a href="index.html"
           ><div class="company-name">
             <img src="/images/danielFLogo.svg" alt="df-logo" /></div
         ></a>
-        <div class="right-links">
+        <div class="hamburger" onclick="toggleMenu()">
+          <div id="nav-icon1">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        </div>
+        <div class="right-links" id="menu">
           <a href="projektoversigt.html" class="stagger-link">
             <span class="stagger-link-text">Projekter,</span>
           </a>
@@ -132,28 +142,30 @@
       <img src="images/MAK assets/mobil mock 2.png" alt="" />
     </div>
 
-    <div class="footer-sec">
-      <div class="logo-cr">
-        <img src="/images/footerLogo.svg" alt="footerLogoDf" />
-        <h5>COPYRIGHT @ DANIEL FREDERIKSMOSE</h5>
-      </div>
-      <div class="social-columns">
-        <div class="socials-webnav">
-          <h4>Menu</h4>
-          <a href="#">Projekter</a>
-          <a href="#">Om mig</a>
-          <a href="#">Kontakt</a>
+        <!-- Footer -->
+
+        <div class="footer-sec">
+          <div class="logo-cr">
+            <img src="/images/footerLogo.svg" alt="footerLogoDf" />
+            <h5>COPYRIGHT @ DANIEL FREDERIKSMOSE</h5>
+          </div>
+          <div class="social-columns">
+            <div class="socials-webnav">
+              <h4>Menu</h4>
+              <a href="projektoversigt.html">Projekter</a>
+              <a href="ommig.html">Om mig</a>
+              <a href="kontakt.html">Kontakt</a>
+            </div>
+            <div class="social-links">
+              <h4>Socials</h4>
+              <a href="https://www.instagram.com/danielfrederiksmose/">Instagram</a>
+              <a href="https://www.linkedin.com/in/daniel-frederiksmose-webdesign/">LinkedIn</a>
+              <a href="https://www.facebook.com/profile.php?id=100000495105136">Facebook</a>
+            </div>
+          </div>
+          <div class="scroll-to-top">
+            <a href="#scrollToTop"><img src="images/arrow.svg" alt="" /></a>
+          </div>
         </div>
-        <div class="social-links">
-          <h4>Socials</h4>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Facebook</a>
-        </div>
-      </div>
-      <div class="scroll-to-top">
-        <a href="#scrollToTop"><img src="/images/arrow.svg" alt="" /></a>
-      </div>
-    </div>
-  </body>
-</html>
+      </body>
+    </html>

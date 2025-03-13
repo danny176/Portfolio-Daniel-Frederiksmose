@@ -22,12 +22,14 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="forside.js" defer></script>
+    <script src="global.js" defer></script>
   </head>
   <body id="scrollToTop">
     <!-- Desktop header -->
     <div id="cursor-image">
-       <!-- svg animation -->
+      <!-- svg animation -->
       <svg
+        class="viewproject-circle"
         width="275"
         height="318"
         viewBox="-50 -50 695 693"
@@ -86,7 +88,7 @@
         </g>
       </svg>
     </div>
-     <!-- intro animation -->
+    <!-- intro animation -->
     <div id="introAnimation">
       <div class="blue-background">
         <div class="intrologoanimation">
@@ -96,14 +98,23 @@
       </div>
     </div>
     <section class="fullvh">
-       <!-- nav bar -->
+      <!-- nav bar -->
       <div class="nav-container">
         <nav class="navbar">
+          <div class="firmanavn-hamburger">
           <a href="index.html"
             ><div class="company-name">
               <img src="/images/danielFLogo.svg" alt="df-logo" /></div
           ></a>
-          <div class="right-links">
+          <div class="hamburger" onclick="toggleMenu()">
+            <div id="nav-icon1">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          </div>
+          <div class="right-links" id="menu">
             <a href="projektoversigt.html" class="stagger-link">
               <span class="stagger-link-text">Projekter,</span>
             </a>
@@ -118,7 +129,7 @@
           </div>
         </nav>
       </div>
-       <!-- forside -->
+      <!-- forside -->
       <section class="herosection">
         <div class="intro-text">
           <div class="container-wordwrap">
@@ -154,7 +165,7 @@
       </section>
     </section>
 
- <!-- Projekter sektion -->
+    <!-- Projekter sektion -->
     <div class="work-header">
       <h2>Udvalgte <span>Projekter</span></h2>
     </div>
@@ -169,7 +180,7 @@
           </div>
           <div class="numb-arrow">
             <h3 class="nummer-projekt">01</h3>
-            <svg
+            <svg class="arrow-projekter"
               class="svgArrow2"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -196,7 +207,7 @@
           </div>
           <div class="numb-arrow">
             <h3>02</h3>
-            <svg
+            <svg class="arrow-projekter"
               class="svgArrow2"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -223,7 +234,7 @@
           </div>
           <div class="numb-arrow">
             <h3>03</h3>
-            <svg
+            <svg class="arrow-projekter"
               class="svgArrow2"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -242,13 +253,13 @@
           class="img-container-nopad"
         >
           <div class="img-wrapper">
-            <img src="/images/zerobuzzMockup.png" alt="" />
+            <img src="/images/zb mock.png" alt="" />
           </div>
         </a>
       </div>
     </section>
 
- <!-- Kompetence kort -->
+    <!-- Kompetence kort -->
 
     <div class="racesWrapper">
       <div class="headline-kom">
@@ -299,7 +310,7 @@
       </div>
     </div>
 
-     <!-- Connect med mig sektion -->
+    <!-- Connect med mig sektion -->
 
     <div class="socials-sec">
       <div class="social-text">
@@ -326,7 +337,7 @@
       </a>
     </div>
 
-     <!-- Footer -->
+    <!-- Footer -->
 
     <div class="footer-sec">
       <div class="logo-cr">
@@ -336,15 +347,20 @@
       <div class="social-columns">
         <div class="socials-webnav">
           <h4>Menu</h4>
-          <a href="#">Projekter</a>
-          <a href="#">Om mig</a>
-          <a href="#">Kontakt</a>
+          <a href="projektoversigt.html">Projekter</a>
+          <a href="ommig.html">Om mig</a>
+          <a href="kontakt.html">Kontakt</a>
         </div>
+        <img id="footerLogo" src="/images/logo vector.svg" alt="dfLogo" />
         <div class="social-links">
           <h4>Socials</h4>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-          <a href="#">Facebook</a>
+          <a href="https://www.instagram.com/danielfrederiksmose/">Instagram</a>
+          <a href="https://www.linkedin.com/in/daniel-frederiksmose-webdesign/"
+            >LinkedIn</a
+          >
+          <a href="https://www.facebook.com/profile.php?id=100000495105136"
+            >Facebook</a
+          >
         </div>
       </div>
       <div class="scroll-to-top">

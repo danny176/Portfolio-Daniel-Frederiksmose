@@ -1,4 +1,4 @@
-@media (min-width: 501px) {
+@media (min-width: 1200px) {
   .intro-text {
     display: flex;
     justify-content: space-between;
@@ -680,7 +680,830 @@
     margin-top: 5vh;
     flex: 0 0 auto; /* Prevent cards from shrinking */
     width: 30vw; /* Set width of each card */
-    height: 55vh; /* Set height of each card */
+    height: 50vh; /* Set height of each card */
+    background-color: #fffcf6;
+    color: var(--Almost-black); /* Text color */
+    display: flex; /* Center text */
+    flex-direction: column;
+    justify-content: space-between; /* Center horizontally */
+    margin-right: 32px; /* Space between cards */
+    padding: 25px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #70cff8;
+    z-index: 0;
+    transform: translateX(var(--pseudo-transform, 0%)); /* Animate with GSAP */
+    clip-path: inset(0);
+  }
+
+  .card:first-child {
+    --pseudo-transform: 100%; /* Fully covered for the first card */
+  }
+
+  .card h1 {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+
+  #mindreIkoner2 {
+    width: 5vw;
+    height: auto;
+  }
+
+  #mindreIkoner1 {
+    width: 6vw;
+    height: auto;
+  }
+
+  .card img {
+    z-index: 1;
+    display: block;
+    width: 8vw;
+    height: auto;
+  }
+
+  .card p {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal";
+    font-size: 1.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.24px;
+    max-width: 25vw;
+    z-index: 1;
+  }
+
+  .headline-kom-inner {
+    position: relative; /* Use relative to allow proper overflow control */
+    overflow: hidden; /* Ensure content beyond the bounds is clipped */
+  }
+
+  .headline-kom {
+    position: absolute; /* Position it absolutely within the wrapper */
+    top: 0px; /* Adjust as needed */
+    left: 0px; /* Align to the left */
+    z-index: 10; /* Ensure it appears above other elements */
+    overflow: visible; /* Allow inner wrapper to manage overflow */
+  }
+
+  .headline-kom h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    clip-path: inset(0); /* Clipping boundaries */
+  }
+
+  .headline-kom h2 span {
+    color: var(--Almost-black);
+    font-family: "Cormorant";
+    font-size: 4vw;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%; /* 4.575rem */
+    letter-spacing: 0.07625rem;
+    position: relative;
+  }
+
+  /* Intro Animation Styles */
+  #introAnimation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fffcf6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .blue-background {
+    position: relative; /* Relative positioning for the logo to center inside */
+    width: 100%;
+    height: 100%;
+    background-color: #fffcf6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hides the intro animation after it's done */
+  body.intro-complete #introAnimation {
+    display: none;
+  }
+
+  .intrologoanimation {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1199px) and (min-width: 501px) {
+  .intro-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .fullvh {
+    width: 100%;
+    position: relative;
+    height: 60dvh;
+  }
+
+  .herosection {
+    width: 100%;
+    height: 60dvh;
+    opacity: 0;
+  }
+
+  .scrollText span {
+    display: inline-block;
+    color: #adadad;
+    font-family: "Denim TRIAL";
+    font-size: 0.8vw;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: -0.15rem;
+  }
+
+  .welcome-text {
+    margin-top: 10vw;
+    overflow: hidden;
+    display: flex;
+    width: 23dvw;
+  }
+
+  .hjulmedtekst {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hjulmedtekst img {
+    width: 4vw;
+    height: auto;
+  }
+
+  .knap-container-magnetisk {
+    padding: 100px;
+  }
+
+  .welcome-text h4 {
+    color: #472425;
+    font-family: "Denim TRIAL";
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: justify;
+  }
+
+  .work-header {
+    position: relative;
+    margin-bottom: 100px;
+    overflow: hidden;
+    max-width: 50vw;
+  }
+
+  .work-header h2 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .work-header span {
+    color: var(--Almost-black);
+    font-family: "Cormorant";
+    font-size: 4vw;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%; /* 4.575rem */
+    letter-spacing: 0.07625rem;
+  }
+
+  .work-sec {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .work-flex {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-shrink: 0;
+    width: 100%;
+    height: 50vh;
+    padding-bottom: 70px;
+  }
+
+  .img-container {
+    position: relative;
+    width: 50vw;
+    height: 50vh;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-left: 1px solid #472425;
+  }
+
+  .img-wrapper {
+    margin-left: 25px;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+
+  .img-wrapper img {
+    display: block;
+    width: 100%;
+    height: 20vh;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .img-container-nopad {
+    width: 50vw;
+    height: 50vh;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-left: 1px solid #472425;
+  }
+
+  .img-container img,
+  .img-container-nopad img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .img-wrapper img:hover {
+    transform: scale(1.05);
+  }
+
+  .svgArrow2 {
+    width: 2.5vw;
+    fill: var(--Almost-black);
+    height: auto;
+  }
+
+  .title-nr {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 40vw;
+    position: relative;
+  }
+
+  .title-under {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+  }
+
+  .title-under h1 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .title-under h2 {
+    font-family: "Denim TRIAL";
+    font-weight: 500;
+    color: #656565;
+    font-size: 1.2rem;
+  }
+
+  .numb-arrow,
+  .numb-arrow h3 {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 10px;
+    gap: 10px;
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  #designerTekst2 {
+    position: relative;
+    display: block;
+    text-transform: uppercase;
+    color: var(--myred);
+    font-family: "Denim TRIAL";
+    font-size: 6dvw;
+    font-style: normal;
+    font-weight: 400;
+    width: 40vw;
+  }
+
+  .designertekst-container {
+    overflow: hidden;
+    position: absolute;
+    top: 140%;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  #designerTekst {
+    display: none;
+    top: 0;
+    left: 0;
+    position: absolute;
+    text-transform: uppercase;
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 7vw;
+    font-style: normal;
+    font-weight: 400;
+    width: 100%;
+    max-width: 40dvw;
+  }
+
+  .LogoContainer {
+    margin-top: 14vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0 15px;
+  }
+
+  .heroLogoContainer {
+    padding: 10px;
+  }
+
+  #heroLogo {
+    opacity: 1;
+    width: 7vw;
+    height: auto;
+    z-index: 6;
+    display: block;
+  }
+
+  .container-wordwrap {
+    position: relative;
+  }
+
+  .splittexteffect {
+    display: inline-block;
+    overflow: hidden;
+  }
+  .splittexteffect span {
+    display: inline-block;
+  }
+
+  .word,
+  .word2 {
+    overflow: hidden;
+  }
+
+  .word h2 {
+    text-transform: uppercase;
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 9vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .word2 h2 {
+    margin-top: 5vh;
+    color: var(--Almost-black);
+    font-family: Cormorant;
+    font-size: 6.8vw;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.06rem;
+  }
+
+  .workshowcase1 {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    margin-top: 60px;
+  }
+
+  .workshowcase2 {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    align-items: flex-end;
+    padding-bottom: 40px;
+    margin-top: 200px;
+  }
+
+  .workshowcase2 video {
+    width: 45vw;
+    height: auto;
+  }
+
+  .workshowcase1 video {
+    width: 35vw;
+    height: auto;
+  }
+
+  .project-details h3 {
+    color: #898989;
+    font-family: "PP Neue Montreal";
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 1.5rem */
+    padding: 20px 0px;
+  }
+
+  .project-details h2 {
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 1.8rem */
+  }
+
+  .project-details2 h3 {
+    color: #898989;
+    font-family: "PP Neue Montreal";
+    font-size: 1.25rem;
+    font-style: normal;
+    text-align: right;
+    font-weight: 500;
+    line-height: 120%; /* 1.5rem */
+    padding: 20px 0px;
+  }
+
+  .project-details2 h2 {
+    color: #472425;
+    font-family: "PP Neue Montreal";
+    font-size: 1.5rem;
+    font-style: normal;
+    text-align: right;
+    font-weight: 500;
+    line-height: 120%; /* 1.8rem */
+  }
+
+  .project-details2 img {
+    display: block;
+    margin-left: 300px;
+  }
+
+  .social-text {
+    width: 60vw;
+    height: auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .social-text h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 6vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .social-text span {
+    color: var(--Almost-black);
+    font-family: Cormorant;
+    font-size: 7vw;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .emil-bar h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 2vw;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar h4 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    transition: none;
+  }
+
+  .socials-sec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .emil-bar {
+    padding-top: 15px;
+    display: flex;
+    gap: 1vw;
+    border-bottom: 1px solid var(--Almost-black);
+    align-items: center;
+    padding-bottom: 15px;
+  }
+
+  .emil-bar-link {
+    margin-top: 50px;
+    display: inline-block; /* Makes the anchor behave like a button */
+    position: relative;
+  }
+
+  .emil-bar:hover h4 {
+    color: white;
+  }
+
+  .emil-bar:hover h3 {
+    color: white;
+    transform: translateX(10px);
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar:hover .svgArrow {
+    fill: white;
+    transform: translateX(-10px);
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #4c6ee2;
+    transform: scaleY(0);
+    transform-origin: top; /* Fill up from the bottom */
+    transition: transform 0.6s ease;
+  }
+
+  /* On hover, the before pseudo-element fills from the bottom */
+  .emil-bar-link:hover::before {
+    transform: scaleY(1); /* Fill from the bottom */
+    transform-origin: bottom;
+  }
+
+  .svgArrow {
+    width: 1.8vw;
+    fill: var(--Almost-black);
+    height: auto;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  #cursor-image {
+    position: absolute;
+    pointer-events: none;
+    overflow: hidden;
+    display: none;
+    z-index: 2;
+  }
+
+  #cursor-image img {
+    position: relative;
+    width: 7dvw;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .work-showcase-pictures {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .container-workPics {
+    display: flex;
+    gap: 28px;
+    justify-content: space-between;
+    max-width: 100%;
+  }
+
+  .picture-container {
+    width: 100%; /* Make picture container take full width */
+    height: auto; /* Adjust height automatically */
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+
+  .work-container img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    height: 70vh;
+    border-radius: 20px;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .work-container {
+    flex: 1;
+    width: 100%;
+    height: auto;
+  }
+
+  .work-container h5 {
+    padding-top: 20px;
+    color: var(--Almost-black, #141414);
+    font-family: "PP Neue Montreal";
+    font-size: 1vw;
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 1.8rem */
+  }
+
+  .work-container h4 {
+    padding-top: 5px;
+    color: #898989;
+    font-family: "PP Neue Montreal Bold";
+    font-size: 0.9vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 1.5rem */
+  }
+
+  .work-container-2 {
+    width: 50%;
+    height: 800;
+    overflow: hidden;
+  }
+
+  .work-container-2 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    overflow: hidden;
+  }
+
+  .work-container img:hover {
+    transform: scale(1.05);
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  /* Smooth knap fill, hvor cirkel kommer op ved hover */
+  .button {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #000; /* Border color */
+    background: hsl(0, 0%, 97%); /* Initial background color */
+    border-radius: 40px; /* Rounded corners */
+    padding: 10px 25px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    line-height: 1.1; /* Line height */
+    display: inline-block; /* Inline block for button */
+    margin: 20px 0px; /* Margins around the button */
+    color: #000; /* Initial text color */
+    text-decoration: none; /* Remove underline from anchor */
+  }
+
+  .button:after {
+    content: "";
+    position: absolute; /* Position absolutely relative to the button */
+    left: 50%;
+    top: 50%;
+    z-index: 1; /* Stack below the button text */
+    width: 150%;
+    height: 150%; /* Ensure it fills the entire height */
+    border-radius: 50%; /* Match button's border radius */
+    background-color: #000; /* Fill color */
+    transform: translate(-50%, 50%); /* Start out of view (below) */
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1); /* Transition for filling effect */
+  }
+
+  .button:hover:after {
+    transform: translate(-50%, -50%); /* Move the fill shape into view */
+  }
+
+  .button:hover .button-text {
+    color: #fff; /* Change text color to white on hover */
+    transition: color 400ms cubic-bezier(0.215, 0.61, 0.355, 1); /* Text color transition */
+  }
+
+  .button-text {
+    color: #000;
+    text-decoration: none;
+    position: relative;
+    z-index: 3;
+    color: var(--Almost-black, #141414);
+    font-family: "PP Neue Montreal";
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .text-to-animate p {
+    text-decoration: none;
+    color: #000;
+    font-family: "PP Neue Montreal Bold";
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .container-text-animation {
+    display: flex;
+    align-items: center;
+    width: 50vw;
+    padding-left: 5vw;
+  }
+
+  .message-motivate {
+    background-color: var(--myblue);
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 150px 0px;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .text-to-animate .word {
+    background: linear-gradient(to right, #ffffff 50%, rgb(158, 158, 158) 50%);
+    background-size: 500% 100%;
+    background-position-x: 100%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+
+  .scroll-to-top img {
+    width: 1.5vw !important;
+    display: block;
+  }
+
+  .racesWrapper {
+    margin-top: 5vh;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Use flexbox for horizontal layout */
+    align-items: center;
+    height: 40vh; /* Full viewport height */
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+
+  .races {
+    width: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    position: relative;
+    margin-top: 0vh;
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 30vw; /* Set width of each card */
+    height: 25vh; /* Set height of each card */
     background-color: #fffcf6;
     color: var(--Almost-black); /* Text color */
     display: flex; /* Center text */
@@ -824,90 +1647,377 @@
 }
 
 @media screen and (max-width: 500px) {
-  /*Style af logo*/
-  .firma-navn img {
-    width: 100px;
+  .herosection {
+    margin-top: 5vh;
+    width: 100%;
     height: auto;
-    margin-left: 15px;
+    opacity: 0;
+    margin-bottom: 15vh;
   }
 
-  /*Style af burgermenu*/
-  .hambruger-menu-knap {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    right: 15px; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    z-index: 4;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  nav {
-    position: relative;
+  .intro-text {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px 0px;
-  }
-
-  .nav-container {
-    position: fixed;
-    top: 0;
-    z-index: 2;
-    width: 100%;
-    left: 0;
-  }
-
-  /*Style af navbar efter scroll*/
-  .nav-container.scrolled {
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(40px);
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-  }
-
-  /*Style af overskrifter når burgermenu åbner*/
-  .right-links a {
-    color: white;
-    font-family: "Poppins";
-    font-size: 1.5rem;
-    font-weight: 500;
-    text-decoration: none;
-  }
-  /*Style af herobillede*/
-  .herobillede img {
-    width: 100%;
-    height: 50vh;
-    object-fit: cover;
-    object-position: center;
-    transform: translateY(0);
-    will-change: transform;
-  }
-
-  /*Style af burgermenu*/
-  .right-links {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background-color: #2722a4;
     flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    transition: left 400ms ease-out;
-    z-index: 3;
-    padding-top: 80px;
+    gap: 25px;
   }
 
-  .right-links.active {
-    left: 0;
+  .welcome-text {
+    margin-top: 12vh;
+    overflow: hidden;
+    display: flex;
+    width: 75dvw;
+  }
+
+  .welcome-text h4 {
+    color: #472425;
+    font-family: "Denim TRIAL";
+    font-size: 4.5vw;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: justify;
+  }
+
+  .designertekst-container {
+    display: none;
+  }
+
+  .heroLogoContainer {
+    padding: 0px;
+  }
+
+  #heroLogo {
+    opacity: 1;
+    width: 20vw;
+    height: auto;
+    z-index: 6;
+    display: block;
+    margin-left: 40%;
+  }
+
+  .word,
+  .word2 {
     overflow: hidden;
   }
 
-  .firma-navn-mobile {
-    padding-bottom: 25px;
+  .word h2 {
+    text-transform: uppercase;
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 16vw;
+    font-style: normal;
+    font-weight: 400;
   }
 
+  .word2 h2 {
+    margin-left: 20%;
+    color: var(--Almost-black);
+    font-family: Cormorant;
+    font-size: 13vw;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.06rem;
+  }
+
+  .viewproject-circle {
+    display: none;
+  }
+
+  .hjulmedtekst {
+    display: none;
+  }
+
+  .arrow-projekter {
+    display: none;
+  }
+
+  .work-flex {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .img-container, .img-container-nopad {
+    width: 100%;
+    height: auto;
+  }
+
+  .img-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .title-under {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+  }
+
+  .title-nr {
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+    margin-bottom: 3vh;
+  }
+
+  .title-under h1 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .title-under h2 {
+    font-family: "Denim TRIAL";
+    font-weight: 500;
+    color: #656565;
+    font-size: 1.2rem;
+  }
+
+  .numb-arrow,
+  .numb-arrow h3 {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0px;
+    gap: 10px;
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+
+  .work-header {
+    margin: 4vh 0px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .work-header h2 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 8vw;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .work-header span {
+    color: var(--Almost-black);
+    font-family: "Cormorant";
+    font-size: 8vw;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%; /* 4.575rem */
+    letter-spacing: 0.07625rem;
+  }
+
+  .social-text {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .social-text h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 12vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .social-text span {
+    color: var(--Almost-black);
+    font-family: Cormorant;
+    font-size: 12vw;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .emil-bar h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 2vw;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar h4 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    transition: none;
+  }
+
+  .socials-sec {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10vh;
+  }
+
+  .emil-bar {
+    padding-top: 5vh;
+    display: flex;
+    gap: 1vw;
+    border-bottom: 1px solid var(--Almost-black);
+    align-items: center;
+    padding-bottom: 5px;
+  }
+
+  .svgArrow {
+    width: 6vw;
+    fill: var(--Almost-black);
+    height: auto;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .racesWrapper {
+    margin-top: 15vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .races {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card {
+    position: relative;
+    margin-top: 5vh;
+    width: 100%; 
+    height: 50vh;
+    background-color: #fffcf6;
+    color: var(--Almost-black); /* Text color */
+    display: flex; /* Center text */
+    flex-direction: column;
+    justify-content: space-between; /* Center horizontally */
+    padding: 25px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .card h1 {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 10vw;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+
+  #mindreIkoner2 {
+    width: 20vw;
+    height: auto;
+  }
+
+  #mindreIkoner1 {
+    width: 24vw;
+    height: auto;
+  }
+
+  .card img {
+    z-index: 1;
+    display: block;
+    width: 30vw;
+    height: auto;
+  }
+
+  .card p {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal";
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.24px;
+    max-width: 80vw;
+    z-index: 1;
+  }
+
+  .headline-kom h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 8vw;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    clip-path: inset(0); /* Clipping boundaries */
+  }
+
+  .headline-kom h2 span {
+    color: var(--Almost-black);
+    font-family: "Cormorant";
+    font-size: 8vw;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%; /* 4.575rem */
+    letter-spacing: 0.07625rem;
+    position: relative;
+  }
+
+  /* Intro Animation Styles */
+  #introAnimation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fffcf6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .blue-background {
+    position: relative; /* Relative positioning for the logo to center inside */
+    width: 100%;
+    height: 100%;
+    background-color: #fffcf6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Hides the intro animation after it's done */
+  body.intro-complete #introAnimation {
+    display: none;
+  }
+
+  .intrologoanimation {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+    justify-content: center;
+  }
 }
