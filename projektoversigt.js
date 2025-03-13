@@ -23,22 +23,3 @@ gsap.fromTo(
     stagger: 0.01, // Tilføj en forsinkelse mellem hver karakter's animation
   }
 );
-
-//Billede reveal animation med imagewrapper som trigger
-
-gsap.utils.toArray(".billedecontainer").forEach((imageWrapper) => {
-  gsap.from(imageWrapper.querySelector("img"), {
-    opacity: 0,
-    scale: 1.1,
-    duration: 1.5,
-    ease: "Expo.easeOut",
-    scrollTrigger: {
-      trigger: imageWrapper,
-      start: "top 80%",
-      toggleActions: "play none none none",
-    },
-    onComplete: function () {
-      gsap.set(imageWrapper.querySelector("img"), { clearProps: "scale" }); // Removes the scale property so hover works
-    },
-  });
-});

@@ -166,7 +166,7 @@ html {
     padding-bottom: 5px;
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 0.8vw;
+    font-size: 1vw;
     font-style: normal;
     font-weight: 500;
   }
@@ -174,7 +174,7 @@ html {
   .social-columns a {
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 0.8vw;
+    font-size: 0.9vw;
     font-style: normal;
     font-weight: 400;
   }
@@ -351,7 +351,7 @@ html {
     border-top: 1px solid var(--myred);
     margin-top: 7vw;
     padding-top: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     position: relative;
   }
 
@@ -359,7 +359,6 @@ html {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-bottom: 15px;
   }
 
   .logo-cr img {
@@ -370,7 +369,7 @@ html {
   .logo-cr h5 {
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 2.5vw;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
   }
@@ -402,7 +401,7 @@ html {
     padding-bottom: 5px;
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 4vw;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
   }
@@ -410,7 +409,7 @@ html {
   .social-columns a {
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 3.5vw;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
   }
@@ -419,11 +418,11 @@ html {
     position: absolute;
     bottom: 0;
     right: 0;
-    padding-bottom: 25px;
   }
 
   .scroll-to-top img {
-    width: 8vw;
+    width: 2rem;
+    display: block;
   }
 
   #footerLogo {

@@ -410,6 +410,7 @@
   }
 
   .socials-sec {
+    margin-top: 15vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -654,11 +655,6 @@
     -webkit-background-clip: text;
   }
 
-  .scroll-to-top img {
-    width: 1.5vw !important;
-    display: block;
-  }
-
   .racesWrapper {
     margin-top: 10vh;
     position: relative;
@@ -677,10 +673,10 @@
 
   .card {
     position: relative;
-    margin-top: 5vh;
+    margin-top: 10vh;
     flex: 0 0 auto; /* Prevent cards from shrinking */
     width: 30vw; /* Set width of each card */
-    height: 50vh; /* Set height of each card */
+    height: 60vh; /* Set height of each card */
     background-color: #fffcf6;
     color: var(--Almost-black); /* Text color */
     display: flex; /* Center text */
@@ -860,18 +856,21 @@
   }
 
   .hjulmedtekst {
+    display: none;
     margin-top: 10vh;
     display: flex;
     justify-content: center;
   }
 
   .hjulmedtekst img {
+    display: none;
     width: 4vw;
     height: auto;
   }
 
   .knap-container-magnetisk {
     padding: 100px;
+    display: none;
   }
 
   .welcome-text h4 {
@@ -1477,11 +1476,6 @@
     -webkit-background-clip: text;
   }
 
-  .scroll-to-top img {
-    width: 1.5vw !important;
-    display: block;
-  }
-
   .racesWrapper {
     margin-top: 5vh;
     position: relative;
@@ -1737,7 +1731,8 @@
     flex-direction: column-reverse;
   }
 
-  .img-container, .img-container-nopad {
+  .img-container,
+  .img-container-nopad {
     width: 100%;
     height: auto;
   }
@@ -1909,7 +1904,7 @@
   .card {
     position: relative;
     margin-top: 5vh;
-    width: 100%; 
+    width: 100%;
     height: 50vh;
     background-color: #fffcf6;
     color: var(--Almost-black); /* Text color */

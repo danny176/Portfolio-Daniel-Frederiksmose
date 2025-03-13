@@ -1,12 +1,45 @@
-h1 {
-  margin-top: 5vh;
+
+@media (min-width: 1200px) {
+.kontaktoverskrift {
   color: #0e0e0e;
   font-family: "Denim TRIAL";
   font-size: 8vw;
   font-style: normal;
   font-weight: 400;
-  line-height: 1;
-  margin-bottom: 25vh;
+  line-height: 1.2;
+}
+
+.overskrift-container {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 20vh;
+  margin-top: 5vh;
+}
+
+.overskrift-container2 {
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .gemcontainer {
@@ -16,7 +49,7 @@ h1 {
 }
 
 .cirkel-info {
-  display: flex;
+  display: inline-flex;
   gap: 25px;
   align-items: center;
 }
@@ -73,3 +106,223 @@ h1 {
 .infobar2:hover .cirkel-info img {
   transform: scale(1.5);
 }
+}
+
+
+@media screen and (max-width: 1199px) and (min-width: 501px) {
+  .kontaktoverskrift {
+    color: #0e0e0e;
+    font-family: "Denim TRIAL";
+    font-size: 8vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  
+  .overskrift-container {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10vh;
+    margin-top: 5vh;
+  }
+  
+  .overskrift-container2 {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .toast.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .gemcontainer {
+    overflow: hidden;
+    width: fit-content;
+    display: inline-block;
+  }
+  
+  .cirkel-info {
+    display: inline-flex;
+    gap: 25px;
+    align-items: center;
+  }
+  
+  .infobar {
+    border-top: 1px solid black;
+    padding-bottom: 5vh;
+  }
+  
+  .infobar h3,
+  .infobar2 h3 {
+    margin-top: 1vh;
+    color: #656565;
+    text-align: left;
+    font-family: "Denim TRIAL";
+    font-size: 2vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    margin-bottom: 1vh;
+  }
+  
+  .cirkel-info h2 {
+    color: #000;
+    text-align: center;
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .cirkel-info img {
+    display: block;
+    width: 2vw;
+    height: auto;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+  .infobar2 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-bottom: 5vh;
+    align-items: center;
+  }
+  
+  .kontakt-bars {
+    margin-bottom: 15vh;
+  }
+  
+  .infobar:hover .cirkel-info img {
+    transform: scale(1.5);
+  }
+  
+  .infobar2:hover .cirkel-info img {
+    transform: scale(1.5);
+  }
+  }
+
+@media (max-width: 500px) {
+  .kontaktoverskrift {
+    color: #0e0e0e;
+    font-family: "Denim TRIAL";
+    font-size: 8vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+  
+  .overskrift-container {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 10vh;
+    margin-top: 5vh;
+  }
+  
+  .overskrift-container2 {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+  }
+  
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .toast.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .gemcontainer {
+    overflow: hidden;
+    width: fit-content;
+    display: inline-block;
+  }
+  
+  .cirkel-info {
+    display: inline-flex;
+    gap: 25px;
+    align-items: center;
+  }
+  
+  .infobar {
+    border-top: 1px solid black;
+    padding-bottom: 5vh;
+  }
+  
+  .infobar h3,
+  .infobar2 h3 {
+    margin-top: 1vh;
+    color: #656565;
+    text-align: left;
+    font-family: "Denim TRIAL";
+    font-size: 3.5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    margin-bottom: 1vh;
+  }
+  
+  .cirkel-info h2 {
+    color: #000;
+    text-align: center;
+    font-family: "Denim TRIAL";
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+  
+  .cirkel-info img {
+    display: block;
+    width: 3vw;
+    height: auto;
+    transition: 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+  .infobar2 {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-bottom: 5vh;
+    align-items: center;
+  }
+  
+  .kontakt-bars {
+    margin-bottom: 15vh;
+  }
+  
+  .infobar:hover .cirkel-info img {
+    transform: scale(1.5);
+  }
+  
+  .infobar2:hover .cirkel-info img {
+    transform: scale(1.5);
+  }
+  }
