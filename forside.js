@@ -297,6 +297,16 @@ document.querySelectorAll(".welcome-word").forEach((word) => {
 
 // Landing page animation intro
 
+const splitTextHeroSec = new SplitType(".word", {
+  types: "chars",
+  charClass: "hero-char", // Hver karakter får en <span class="welcome-char">
+});
+
+const splitTextHeroSec2 = new SplitType(".word2", {
+  types: "chars",
+  charClass: "hero2-char", // Hver karakter får en <span class="welcome-char">
+});
+
 const introLogo = document.getElementById("introLogo");
 const introAnimation = document.getElementById("introAnimation");
 
@@ -334,16 +344,15 @@ const introAnimationTimeline = gsap.timeline({
 
     // Animere mine headlines
     gsap.fromTo(
-      ".word h2, .word2 h2, #heroLogo",
+      ".hero-char, .hero2-char",
       {
-        y: 300,
-        x: 20,
+        y: 500,
       },
       {
         y: 0,
-        x: 0, // Slutposition (oprindelig placering)
         duration: 0.6,
         ease: "power1.inOut", // Glat easing
+        stagger: 0.01,
       }
     );
 

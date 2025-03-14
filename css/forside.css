@@ -149,7 +149,7 @@
   }
 
   .svgArrow2 {
-    width: 2.5vw;
+    width: 3rem;
     fill: var(--Almost-black);
     height: auto;
   }
@@ -973,7 +973,7 @@
   }
 
   .svgArrow2 {
-    width: 2.5vw;
+    width: 3rem;
     fill: var(--Almost-black);
     height: auto;
   }
@@ -1722,7 +1722,7 @@
     display: none;
   }
 
-  .arrow-projekter {
+  .svgArrow2 {
     display: none;
   }
 
