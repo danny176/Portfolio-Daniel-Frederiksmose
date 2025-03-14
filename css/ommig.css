@@ -208,7 +208,7 @@
   margin-top: 5vh;
   flex: 0 0 auto; /* Prevent cards from shrinking */
   width: 30vw; /* Set width of each card */
-  height: 55vh; /* Set height of each card */
+  height: 60vh; /* Set height of each card */
   background-color: #fffcf6;
   color: var(--Almost-black); /* Text color */
   display: flex; /* Center text */
