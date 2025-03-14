@@ -31,7 +31,7 @@
 .overskrift-tekst h2 {
   color: #000;
   font-family: "PP Neue Montreal";
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 28.8px */
@@ -40,10 +40,10 @@
 }
 
 .overskrift-tekst h5 {
-  width: 25vw;
+  width: 500px;
   color: #000;
   font-family: "PP Neue Montreal";
-  font-size: 0.9vw;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%; /* 25px */
@@ -60,14 +60,14 @@
 
 .overskrift-tekst-pil img {
   display: block;
-  width: 0.9vw;
+  width: 1.5rem;
   height: auto;
 }
 
 .arrow-wrapper {
   position: relative;
-  width: 0.9vw;
-  height: 0.9vw;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .arrow {
@@ -81,7 +81,7 @@
 .overskrift-tekst-pil h2 {
   color: #000;
   font-family: "PP Neue Montreal";
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   text-transform: uppercase;
@@ -104,7 +104,7 @@
 .beskrivelse h2 {
   color: #000;
   font-family: "PP Neue Montreal";
-  font-size: 1.2vw;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: 120%; /* 28.8px */
@@ -112,10 +112,10 @@
 }
 
 .beskrivelse h5 {
-  width: 30vw;
+  width: 600px;
   color: #000;
   font-family: "PP Neue Montreal";
-  font-size: 0.9vw;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 125%; /* 25px */

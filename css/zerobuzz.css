@@ -112,7 +112,7 @@
   object-position: center;
   display: block;
   border-radius: 20px;
-  margin: 5vh 0px;
+  margin-top: 5vh;
 } 
 
 
@@ -133,7 +133,7 @@
 }
 
 .beskrivelse h5 {
-  width: 500px;
+  width: 600px;
   color: #000;
   font-family: "PP Neue Montreal";
   font-size: 1.1rem;
@@ -158,13 +158,12 @@
 
 .videorkol {
   display: flex;
-  gap: 50px; /* Space between videos */
   width: 100%;
-  height: 65vh;
+  height: auto;
 }
 
 .videorkol video {
-  width: calc(50%); /* Adjust width to account for the gap */
+  width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 20px;
