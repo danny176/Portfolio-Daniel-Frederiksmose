@@ -124,6 +124,14 @@ function getRandomTrack() {
   return tracks[randomIndex];
 }
 
+function playNextTrack() {
+  if (isPlaying) {
+    currentTrack = getRandomTrack();
+    currentTrack.play();
+    currentTrack.addEventListener("ended", playNextTrack); // Play next when finished
+  }
+}
+
 button.addEventListener("click", () => {
   if (isPlaying) {
     currentTrack.pause();
@@ -132,7 +140,6 @@ button.addEventListener("click", () => {
     tl.reverse();
   } else {
     currentTrack = getRandomTrack();
-    currentTrack.loop = true;
     currentTrack.play();
     isPlaying = true;
     tl.play();
