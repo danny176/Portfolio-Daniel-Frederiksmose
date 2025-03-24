@@ -1729,6 +1729,7 @@
   .work-flex {
     display: flex;
     flex-direction: column-reverse;
+    margin-bottom: 50px;
   }
 
   .img-container,
@@ -1905,7 +1906,7 @@
     position: relative;
     margin-top: 5vh;
     width: 100%;
-    height: 50vh;
+    height: 400px;
     background-color: #fffcf6;
     color: var(--Almost-black); /* Text color */
     display: flex; /* Center text */
@@ -1920,7 +1921,7 @@
     text-decoration: none;
     color: var(--Almost-black);
     font-family: "PP Neue Montreal Bold";
-    font-size: 10vw;
+    font-size: 9vw;
     font-style: normal;
     font-weight: 500;
     letter-spacing: 0.5px;

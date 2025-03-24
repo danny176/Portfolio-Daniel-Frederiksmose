@@ -6,6 +6,16 @@
   color: #0e0e0e;
 }
 
+.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+html.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
 @font-face {
   font-family: "PP Neue Montreal";
   src: url("/fonts/PPNeueMontreal-Book.otf");
@@ -330,7 +340,7 @@ html {
     border-top: 1px solid var(--myred);
     margin-top: 7vw;
     padding-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     position: relative;
   }
 
@@ -338,6 +348,7 @@ html {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding-bottom: 25px;
   }
 
   .logo-cr img {
@@ -348,7 +359,7 @@ html {
   .logo-cr h5 {
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 1rem;
+    font-size: 2.5vw;
     font-style: normal;
     font-weight: 400;
   }
@@ -380,7 +391,7 @@ html {
     padding-bottom: 5px;
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 1.5rem;
+    font-size: 4vw;
     font-style: normal;
     font-weight: 500;
   }
@@ -388,7 +399,7 @@ html {
   .social-columns a {
     color: var(--Almost-black);
     font-family: "Denim TRIAL";
-    font-size: 1rem;
+    font-size: 3.5vw;
     font-style: normal;
     font-weight: 400;
   }
@@ -397,11 +408,12 @@ html {
     position: absolute;
     bottom: 0;
     right: 0;
+    padding-bottom: 25px;
   }
 
   .scroll-to-top img {
-    width: 2rem;
     display: block;
+    width: 8vw;
   }
 
   #footerLogo {

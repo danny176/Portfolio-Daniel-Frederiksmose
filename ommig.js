@@ -1,67 +1,96 @@
-// Vandret scroll-animation
+// Function to initialize horizontal scroll animation
+function initializeHorizontalScroll() {
+  const races = document.querySelector(".races");
 
-const races = document.querySelector(".races");
+  // Function to calculate the scroll amount
+  function getScrollAmount() {
+    let racesWidth = races.scrollWidth;
+    return racesWidth - window.innerWidth + 128;
+  }
 
-// Funktion til at beregne, hvor meget der skal scrolles
-function getScrollAmount() {
-  let racesWidth = races.scrollWidth; // Den samlede bredde af races-containeren
-  return racesWidth - window.innerWidth + 128; // Den scrollbare bredde
+  // Create the GSAP tween for horizontal scroll
+  const tween = gsap.to(races, {
+    x: -getScrollAmount(),
+    duration: 3,
+    ease: "none",
+    paused: true,
+  });
+
+  // Create the ScrollTrigger instance for horizontal scroll
+  ScrollTrigger.create({
+    trigger: ".racesWrapper",
+    start: "center center",
+    end: () => `+=${getScrollAmount()}`,
+    pin: true,
+    animation: tween,
+    scrub: 1,
+    invalidateOnRefresh: true,
+    markers: false,
+  });
+
+  // Color change animation for cards
+  ScrollTrigger.create({
+    trigger: ".racesWrapper",
+    start: "center center",
+    end: () => `+=${getScrollAmount()}`,
+    scrub: 1,
+    onUpdate: (self) => {
+      const progress = self.progress;
+      const cards = document.querySelectorAll(".card");
+      const totalCards = cards.length;
+
+      cards.forEach((card, index) => {
+        const cardStart = index / totalCards;
+        const cardEnd = (index + 1) / totalCards;
+
+        if (index === 0) {
+          card.style.setProperty("--pseudo-transform", "100%");
+        } else if (progress >= cardStart && progress <= cardEnd) {
+          const localProgress = (progress - cardStart) / (cardEnd - cardStart);
+          card.style.setProperty(
+            "--pseudo-transform",
+            `${localProgress * 100}%`
+          );
+        } else if (progress > cardEnd) {
+          card.style.setProperty("--pseudo-transform", "100%");
+        } else if (progress < cardStart) {
+          card.style.setProperty("--pseudo-transform", "0%");
+        }
+      });
+    },
+  });
 }
 
-const tween = gsap.to(races, {
-  x: -getScrollAmount(), // Flytter races-containeren til venstre med den scrollbare bredde
-  duration: 3,
-  ease: "none",
-  paused: true, // Starter med at være pauset, så den kun afspilles ved scroll
-});
+// Function to disable horizontal scroll animation
+function disableHorizontalScroll() {
+  const races = document.querySelector(".races");
+  gsap.set(races, { x: 0 }); // Reset horizontal translation
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.style.setProperty("--pseudo-transform", "0%"); // Reset pseudo-element transform
+  });
+}
 
-ScrollTrigger.create({
-  trigger: ".racesWrapper",
-  start: "center center", // Starter når toppen af wrapperen rammer midten af viewporten
-  end: () => `+=${getScrollAmount()}`, // Slutter når hele scrollområdet er passeret
-  pin: true, // Låser wrapperen fast, så kun indholdet bevæger sig
-  animation: tween,
-  scrub: 1, // Gør animationen afhængig af scroll-bevægelsen
-  invalidateOnRefresh: true, // Genberegner værdier, hvis vinduet ændres
-  markers: false, // Sæt til true for debugging, fjern i produktion
-});
+// Check viewport width and enable/disable horizontal scroll
+function checkViewportWidth() {
+  if (window.innerWidth >= 600) {
+    initializeHorizontalScroll(); // Enable horizontal scroll if viewport is 600px or wider
+  } else {
+    disableHorizontalScroll(); // Disable horizontal scroll if viewport is under 600px
+  }
+}
 
-// Farveændring af kort / Animation af pseudo-element
+// Initialize horizontal scroll on page load
+checkViewportWidth();
 
-ScrollTrigger.create({
-  trigger: ".racesWrapper",
-  start: "center center", // Starter når wrapperen er i midten af viewporten
-  end: () => `+=${getScrollAmount()}`, // Slutter når scrollen er fuldført
-  scrub: 1,
-  onUpdate: (self) => {
-    const progress = self.progress; // Henter normaliseret scroll-progress (0 til 1)
-    const cards = document.querySelectorAll(".card");
-    const totalCards = cards.length; // Antallet af kort
+// Re-check viewport width on window resize
+window.addEventListener("resize", checkViewportWidth);
 
-    cards.forEach((card, index) => {
-      const cardStart = index / totalCards; // Startpunkt for dette korts overgang
-      const cardEnd = (index + 1) / totalCards; // Slutpunkt for dette korts overgang
-
-      // Det første kort skal være helt blåt fra starten
-      if (index === 0) {
-        card.style.setProperty("--pseudo-transform", "100%");
-      } else if (progress >= cardStart && progress <= cardEnd) {
-        // Normaliser progress for dette kort
-        const localProgress = (progress - cardStart) / (cardEnd - cardStart);
-        card.style.setProperty("--pseudo-transform", `${localProgress * 100}%`);
-      } else if (progress > cardEnd) {
-        // Hvis scrollen er forbi dette kort, gør pseudo-elementet helt blåt
-        card.style.setProperty("--pseudo-transform", "100%");
-      } else if (progress < cardStart) {
-        // Hvis scrollen ikke er nået til dette kort endnu, nulstil pseudo-elementet
-        card.style.setProperty("--pseudo-transform", "0%");
-      }
-    });
-  },
-});
+// ====================================================
+// All other GSAP and JavaScript code remains outside
+// ====================================================
 
 // Musikknap afspiller
-
 const button = document.querySelector(".musikknap");
 const fraText = document.querySelector(".fra");
 const tilText = document.querySelector(".til");
@@ -69,8 +98,11 @@ const tilText = document.querySelector(".til");
 // GSAP-tidslinje for tekstskift animation
 const tl = gsap.timeline({ paused: true });
 
-tl.to(fraText, { y: "-100%", duration: 0.4, ease: "power2.inOut" }, 0) // Flytter FRA-teksten op
-  .to(tilText, { y: "0", duration: 0.4, ease: "power2.inOut" }, 0); // Flytter TIL-teksten til samme position som FRA
+tl.to(fraText, { y: "-100%", duration: 0.4, ease: "power2.inOut" }, 0).to(
+  tilText,
+  { y: "0", duration: 0.4, ease: "power2.inOut" },
+  0
+);
 
 // Lydfiler
 const tracks = [
@@ -80,45 +112,41 @@ const tracks = [
 ];
 
 let currentTrack = null;
-let lastTrackIndex = -1; // Holder styr på sidste afspillede track
+let lastTrackIndex = -1;
 let isPlaying = false;
 
-// Funktion til at vælge et tilfældigt track, der ikke er det samme som det sidste
 function getRandomTrack() {
   let randomIndex;
   do {
     randomIndex = Math.floor(Math.random() * tracks.length);
-  } while (randomIndex === lastTrackIndex); // Sørger for at vælge et nyt track
-  lastTrackIndex = randomIndex; // Opdaterer sidste afspillede track
+  } while (randomIndex === lastTrackIndex);
+  lastTrackIndex = randomIndex;
   return tracks[randomIndex];
 }
 
-// Klik-event til at afspille/stoppe musik og animere knappen
 button.addEventListener("click", () => {
   if (isPlaying) {
     currentTrack.pause();
     currentTrack.currentTime = 0;
     isPlaying = false;
-    tl.reverse(); // Reverserer animationen
+    tl.reverse();
   } else {
-    currentTrack = getRandomTrack(); // Vælger et nyt, tilfældigt track
+    currentTrack = getRandomTrack();
     currentTrack.loop = true;
     currentTrack.play();
     isPlaying = true;
-    tl.play(); // Starter animationen
+    tl.play();
   }
 });
 
 // Billed-spor effekt på "Hvem er jeg?"-sektionen
-
 const container = document.querySelector(".it-container");
 const itemsContainer = document.querySelector(".items");
-const images = ["/images/it1.png", "/images/it2.png", "/images/it3.png"]; // Stier til billeder
+const images = ["/images/it1.png", "/images/it2.png", "/images/it3.png"];
 
 let trailImages = [];
 let fadeOutTimeout;
 
-// Opretter billed-elementer
 images.forEach((src) => {
   const img = document.createElement("img");
   img.src = src;
@@ -127,16 +155,13 @@ images.forEach((src) => {
   trailImages.push(img);
 });
 
-// Viser billedcontaineren når musen bevæger sig ind
 container.addEventListener("mouseenter", () => {
   itemsContainer.style.display = "block";
 });
 
-// Sætter initiale GSAP-egenskaber
 gsap.set(trailImages, { xPercent: -50, yPercent: -50, opacity: 0, scale: 0.5 });
 
 container.addEventListener("mousemove", (e) => {
-  // Nulstil en eventuel eksisterende fade-out timer
   clearTimeout(fadeOutTimeout);
 
   const mouseX = e.pageX;
@@ -151,66 +176,41 @@ container.addEventListener("mousemove", (e) => {
     stagger: 0.1,
   });
 
-  // Indstiller en forsinket fade-out effekt, når musen stopper med at bevæge sig
   fadeOutTimeout = setTimeout(() => {
     gsap.to(trailImages, {
       opacity: 0,
       scale: 0.5,
       duration: 0.3,
     });
-  }, 200); // Juster denne forsinkelse (200ms) for en glattere effekt
+  }, 200);
 });
 
-//Animationer
-
+// Animationer
 const splitTextOmmig = new SplitType("#overskrift1", {
   types: "words, chars",
-  wordClass: "zero1-word", // Hvert ord får en <span class="welcome-word">
-  charClass: "zero1-char", // Hver karakter får en <span class="welcome-char">
+  wordClass: "zero1-word",
+  charClass: "zero1-char",
 });
 
 gsap.fromTo(
   ".zero1-char",
-  {
-    y: 500,
-    x: -50,
-    opacity: 1,
-  },
-  {
-    y: 0,
-    x: 0,
-    opacity: 1,
-    duration: 0.6,
-    ease: "power2.out",
-    stagger: 0.01, // Tilføj en forsinkelse mellem hver karakter's animation
-  }
+  { y: 500, x: -50, opacity: 1 },
+  { y: 0, x: 0, opacity: 1, duration: 0.6, ease: "power2.out", stagger: 0.01 }
 );
 
 const splitTextOmmig2 = new SplitType("#overskrift2", {
   types: "words, chars",
-  wordClass: "zero2-word", // Hvert ord får en <span class="welcome-word">
-  charClass: "zero2-char", // Hver karakter får en <span class="welcome-char">
+  wordClass: "zero2-word",
+  charClass: "zero2-char",
 });
 
 gsap.fromTo(
   ".zero2-char",
-  {
-    y: 500,
-    x: -50,
-    opacity: 1,
-  },
-  {
-    y: 0,
-    x: 0,
-    opacity: 1,
-    duration: 0.6,
-    ease: "power2.out",
-    stagger: 0.01, // Tilføj en forsinkelse mellem hver karakter's animation
-  }
+  { y: 500, x: -50, opacity: 1 },
+  { y: 0, x: 0, opacity: 1, duration: 0.6, ease: "power2.out", stagger: 0.01 }
 );
 
-//Billede reveal animation med imagewrapper som trigger
-
+// Billede reveal animation
 gsap.utils.toArray(".imagewrapper").forEach((imageWrapper) => {
   gsap.utils.toArray(imageWrapper.querySelectorAll("img")).forEach((img) => {
     gsap.from(img, {
@@ -219,7 +219,7 @@ gsap.utils.toArray(".imagewrapper").forEach((imageWrapper) => {
       duration: 1.5,
       ease: "Expo.easeOut",
       scrollTrigger: {
-        trigger: img, // Triggers animation per image
+        trigger: img,
         start: "top 80%",
         toggleActions: "play none none none",
       },
@@ -229,70 +229,26 @@ gsap.utils.toArray(".imagewrapper").forEach((imageWrapper) => {
 
 gsap.fromTo(
   ".tekst-intro",
-  {
-    y: 100,
-    x: 0,
-    opacity: 0,
-  },
-  {
-    y: 0,
-    x: 0,
-    opacity: 1,
-    duration: 0.6,
-    ease: "Expo.easeOut",
-    stagger: 0.02, // Tilføj en forsinkelse mellem hver karakter's animation
-  }
+  { y: 100, x: 0, opacity: 0 },
+  { y: 0, x: 0, opacity: 1, duration: 0.6, ease: "Expo.easeOut", stagger: 0.02 }
 );
 
 const splitTextHvem = new SplitType(".it-container", {
   types: "words, chars",
-  wordClass: "hvem1-word", // Hvert ord får en <span class="welcome-word">
-  charClass: "hvem1-char", // Hver karakter får en <span class="welcome-char">
+  wordClass: "hvem1-word",
+  charClass: "hvem1-char",
 });
 
 gsap.fromTo(
   ".hvem1-char",
-  {
-    y: 300,
-    x: -50,
-  },
-  {
-    y: 0,
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "Expo.easeOut",
-    stagger: 0.02, // Tilføjer en forsinkelse mellem hver karakter animation
-    scrollTrigger: {
-      trigger: ".hvemerjeg", // The element that triggers the animation
-      start: "top 80%", // Starts when the top of the element reaches 80% of viewport
-      toggleActions: "play none none none", // Runs once
-      markers: false,
-    },
-  }
+  { y: 300, x: -50 },
+  { y: 0, x: 0, opacity: 1, duration: 1, ease: "Expo.easeOut", stagger: 0.02 }
 );
 
 gsap.fromTo(
   ".kreativ",
-  {
-    y: 100,
-    x: 0,
-    opacity: 0,
-  },
-  {
-    y: 0,
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "Expo.easeOut",
-    stagger: 0.02, // Tilføj en forsinkelse mellem hver karakter's animation
-    scrollTrigger: {
-      trigger: ".kreativ", // The element that triggers the animation
-      start: "top 90%", // Starts when the top of the element reaches 80% of viewport
-      toggleActions: "play none none none", // Runs once
-      markers: false,
-    },
-  }
+  { y: 100, x: 0, opacity: 0 },
+  { y: 0, x: 0, opacity: 1, duration: 1, ease: "Expo.easeOut", stagger: 0.02 }
 );
 
 const skillsCheck = new SplitType(".headline-kom h2", {
@@ -302,50 +258,18 @@ const skillsCheck = new SplitType(".headline-kom h2", {
 
 gsap.fromTo(
   ".skills-char",
-  {
-    y: 300,
-    x: 0,
-  },
-  {
-    y: 0,
-    x: 0,
-    opacity: 1,
-    duration: 1,
-    ease: "Expo.easeOut",
-    stagger: 0.01, // Tilføjer en forsinkelse mellem hver karakter animation
-    scrollTrigger: {
-      trigger: ".headline-kom", // Elementet der udløser animationen
-      start: "bottom bottom", // Når toppen af elementet når 75% af viewporten
-      end: "center center", // Når toppen af elementet når 25% af viewporten
-      toggleActions: "play none none none", // Afspil ved enter, ingen reset
-      markers: false,
-    },
-  }
+  { y: 300, x: 0 },
+  { y: 0, x: 0, opacity: 1, duration: 1, ease: "Expo.easeOut", stagger: 0.01 }
 );
 
 const splitTextSocials = new SplitType(".social-text", {
   types: "words, chars",
-  wordClass: "social-word", // Hvert ord får en <span class="welcome-word">
-  charClass: "social-char", // Hver karakter får en <span class="welcome-char">
+  wordClass: "social-word",
+  charClass: "social-char",
 });
 
 gsap.fromTo(
   ".social-char",
-  {
-    y: 400,
-  },
-
-  {
-    y: 0,
-    ease: "power2.out",
-    duration: 0.5,
-    stagger: 0.01,
-    scrollTrigger: {
-      trigger: ".social-text", // Trigger animation baseret på nav containeren
-      start: "top 80%", // Animationen starter når toppen af nav er nået til toppen af viewporten
-      end: "bottom top", // Animationen stopper når bunden af nav er nået til toppen af viewporten
-      markers: true, // Valgfrit: for at se start og slutmarkeringer
-      toggleActions: "play none none none", // Spil når man kommer ind, ingen reset
-    },
-  }
+  { y: 400 },
+  { y: 0, ease: "power2.out", duration: 0.5, stagger: 0.01 }
 );

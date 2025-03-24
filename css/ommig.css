@@ -1,430 +1,1230 @@
-.introduktion {
-  position: relative;
-  height: 100%;
-  width: 100%;
+@media (min-width: 1200px) {
+  .introduktion {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .musikknap {
+    position: fixed;
+    top: 95%; /* Adjust as needed */
+    left: 25px; /* Distance from the left corner */
+    transform: rotate(-90deg) translateY(-50%); /* Rotate and center */
+    transform-origin: left top; /* Ensure proper rotation */
+    white-space: nowrap; /* Prevents text from breaking */
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+  }
+
+  .musikknap h3 {
+    color: #656565;
+    font-family: "PP Neue Montreal Bold";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+  }
+
+  .text-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 1em; /* Ensures the block has a height */
+    width: 2em; /* Adjust width to fit text */
+  }
+
+  .it-container {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    cursor: none;
+  }
+
+  .overskrift-container {
+    overflow: hidden;
+  }
+
+  .items {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    display: none;
+    pointer-events: none;
+  }
+
+  .image-trail {
+    position: absolute;
+    width: auto;
+    height: 25vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fra {
+    transform: translate(0);
+  }
+
+  .til {
+    transform: translateY(100%); /* Starts hidden below */
+  }
+
+  .musikknap span {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 0.32px;
+  }
+
+  .overskrifter h1 {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: "Denim TRIAL";
+    font-size: 18vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 300px */
+    text-transform: uppercase;
+  }
+
+  .overskrifter h2 {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: Cormorant;
+    font-size: 10vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 120%; /* 204px */
+    letter-spacing: -1.7px;
+  }
+
+  .billede-container {
+    position: absolute;
+    top: 10%;
+    left: 58%;
+    z-index: -1;
+  }
+
+  .billede-container img {
+    display: block;
+    width: 40vw;
+    height: auto;
+  }
+
+  .tekst-intro {
+    margin-top: 10vh;
+    color: #0e0e0e;
+    font-family: "PP Neue Montreal";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+    max-width: 30vw;
+  }
+
+  .hvemerjeg h1 {
+    color: var(#0e0e0e);
+    font-family: "Denim TRIAL";
+    font-size: 11vw;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .billedetekst {
+    margin-top: 15vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .kreativ {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 35vw;
+    color: #000;
+    font-family: "PP Neue Montreal";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+  }
+
+  .kreativ h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 66px */
+  }
+
+  .hvemerjeg {
+    margin-top: 25vh;
+  }
+
+  .billedetekst img {
+    width: 45vw;
+  }
+
+  .racesWrapper {
+    margin-top: 10vh;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Use flexbox for horizontal layout */
+    align-items: center;
+    height: 80vh; /* Full viewport height */
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+
+  .races {
+    width: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    position: relative;
+    margin-top: 5vh;
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 30vw; /* Set width of each card */
+    height: 60vh; /* Set height of each card */
+    background-color: #fffcf6;
+    color: var(--Almost-black); /* Text color */
+    display: flex; /* Center text */
+    flex-direction: column;
+    justify-content: space-between; /* Center horizontally */
+    margin-right: 32px; /* Space between cards */
+    padding: 25px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #70cff8;
+    z-index: 0;
+    transform: translateX(var(--pseudo-transform, 0%)); /* Animate with GSAP */
+    clip-path: inset(0);
+  }
+
+  .card:first-child {
+    --pseudo-transform: 100%; /* Fully covered for the first card */
+  }
+
+  .card h1 {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+
+  #mindreIkoner2 {
+    width: 8vw;
+    height: auto;
+  }
+
+  #mindreIkoner3 {
+    width: 4vw;
+    height: auto;
+  }
+
+  #mindreIkoner1 {
+    width: 6vw;
+    height: auto;
+  }
+
+  .card img {
+    z-index: 1;
+    display: block;
+    width: 8vw;
+    height: auto;
+  }
+
+  .card p {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal";
+    font-size: 1.1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.24px;
+    max-width: 25vw;
+    z-index: 1;
+  }
+
+  .headline-kom-inner {
+    position: relative; /* Use relative to allow proper overflow control */
+    overflow: hidden; /* Ensure content beyond the bounds is clipped */
+  }
+
+  .headline-kom {
+    position: absolute; /* Position it absolutely within the wrapper */
+    top: 0px; /* Adjust as needed */
+    left: 0px; /* Align to the left */
+    z-index: 10; /* Ensure it appears above other elements */
+    overflow: visible; /* Allow inner wrapper to manage overflow */
+  }
+
+  .headline-kom h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    clip-path: inset(0); /* Clipping boundaries */
+  }
+
+  .headline-kom h2 span {
+    color: var(--Almost-black);
+    font-family: "Cormorant";
+    font-size: 4vw;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%; /* 4.575rem */
+    letter-spacing: 0.07625rem;
+    position: relative;
+  }
+
+  .social-text {
+    width: 60vw;
+    height: auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .social-text h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 6vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .social-text span {
+    color: var(--Almost-black);
+    font-family: Cormorant;
+    font-size: 7vw;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .emil-bar h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 2vw;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar h4 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    transition: none;
+  }
+
+  .socials-sec {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .emil-bar {
+    padding-top: 15px;
+    display: flex;
+    gap: 1vw;
+    border-bottom: 1px solid var(--Almost-black);
+    align-items: center;
+    padding-bottom: 15px;
+  }
+
+  .emil-bar-link {
+    margin-top: 50px;
+    display: inline-block; /* Makes the anchor behave like a button */
+    position: relative;
+  }
+
+  .emil-bar:hover h4 {
+    color: white;
+  }
+
+  .emil-bar:hover h3 {
+    color: white;
+    transform: translateX(10px);
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar:hover .svgArrow {
+    fill: white;
+    transform: translateX(-10px);
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #4c6ee2;
+    transform: scaleY(0);
+    transform-origin: top; /* Fill up from the bottom */
+    transition: transform 0.6s ease;
+  }
+
+  /* On hover, the before pseudo-element fills from the bottom */
+  .emil-bar-link:hover::before {
+    transform: scaleY(1); /* Fill from the bottom */
+    transform-origin: bottom;
+  }
+
+  .svgArrow {
+    width: 1.8vw;
+    fill: var(--Almost-black);
+    height: auto;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 }
 
-.musikknap {
-  position: fixed;
-  top: 95%; /* Adjust as needed */
-  left: 25px; /* Distance from the left corner */
-  transform: rotate(-90deg) translateY(-50%); /* Rotate and center */
-  transform-origin: left top; /* Ensure proper rotation */
-  white-space: nowrap; /* Prevents text from breaking */
-  background: none;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  overflow: hidden;
+@media screen and (max-width: 1199px) and (min-width: 501px) {
+  .introduktion {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+
+  .musikknap {
+    position: fixed;
+    top: 60%; /* Adjust as needed */
+    right: 25px; /* Distance from the left corner */
+    white-space: nowrap; /* Prevents text from breaking */
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+  }
+
+  .musikknap h3 {
+    color: #656565;
+    font-family: "PP Neue Montreal Bold";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+    mix-blend-mode: difference;
+  }
+
+  .text-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 1em; /* Ensures the block has a height */
+    width: 2em; /* Adjust width to fit text */
+  }
+
+  .it-container {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    cursor: none;
+  }
+
+  .overskrift-container {
+    overflow: hidden;
+  }
+
+  .items {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    display: none;
+    pointer-events: none;
+  }
+
+  .image-trail {
+    position: absolute;
+    width: auto;
+    height: 25vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .fra {
+    transform: translate(0);
+  }
+
+  .til {
+    transform: translateY(100%); /* Starts hidden below */
+  }
+
+  .musikknap span {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 125%;
+    letter-spacing: 0.32px;
+  }
+
+  .overskrifter h1 {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: "Denim TRIAL";
+    font-size: 18vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 300px */
+    text-transform: uppercase;
+  }
+
+  .overskrifter h2 {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: Cormorant;
+    font-size: 10vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 120%; /* 204px */
+    letter-spacing: -1.7px;
+  }
+
+  .billede-container {
+    position: absolute;
+    top: 10%;
+    left: 58%;
+    z-index: -1;
+  }
+
+  .billede-container img {
+    display: block;
+    width: 40vw;
+    height: auto;
+  }
+
+  .tekst-intro {
+    margin-top: 4vh;
+    color: #0e0e0e;
+    font-family: "PP Neue Montreal";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+    max-width: 50vw;
+  }
+
+  .hvemerjeg h1 {
+    color: var(#0e0e0e);
+    font-family: "Denim TRIAL";
+    font-size: 11vw;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .billedetekst {
+    margin-top: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .kreativ {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 35vw;
+    color: #000;
+    font-family: "PP Neue Montreal";
+    font-size: 1vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+  }
+
+  .kreativ h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 66px */
+  }
+
+  .hvemerjeg {
+    margin-top: 10vh;
+  }
+
+  .billedetekst img {
+    width: 45vw;
+  }
+
+  .racesWrapper {
+    margin-top: 10vh;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Use flexbox for horizontal layout */
+    align-items: center;
+    height: 80vh; /* Full viewport height */
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+
+  .races {
+    width: fit-content;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .card {
+    position: relative;
+    margin-top: 5vh;
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 35vw; /* Set width of each card */
+    height: 25vh; /* Set height of each card */
+    background-color: #fffcf6;
+    color: var(--Almost-black); /* Text color */
+    display: flex; /* Center text */
+    flex-direction: column;
+    justify-content: space-between; /* Center horizontally */
+    margin-right: 32px; /* Space between cards */
+    padding: 25px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #70cff8;
+    z-index: 0;
+    transform: translateX(var(--pseudo-transform, 0%)); /* Animate with GSAP */
+    clip-path: inset(0);
+  }
+
+  .card:first-child {
+    --pseudo-transform: 100%; /* Fully covered for the first card */
+  }
+
+  .card h1 {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 2.5vw;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+
+  #mindreIkoner2 {
+    width: 8vw;
+    height: auto;
+  }
+
+  #mindreIkoner3 {
+    width: 4vw;
+    height: auto;
+  }
+
+  #mindreIkoner1 {
+    width: 6vw;
+    height: auto;
+  }
+
+  .card img {
+    z-index: 1;
+    display: block;
+    width: 8vw;
+    height: auto;
+  }
+
+  .card p {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal";
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.24px;
+    max-width: 25vw;
+    z-index: 1;
+  }
+
+  .headline-kom-inner {
+    position: relative; /* Use relative to allow proper overflow control */
+    overflow: hidden; /* Ensure content beyond the bounds is clipped */
+  }
+
+  .headline-kom {
+    position: absolute; /* Position it absolutely within the wrapper */
+    top: 25%; /* Adjust as needed */
+    left: 0; /* Align to the left */
+    z-index: 10; /* Ensure it appears above other elements */
+    overflow: visible; /* Allow inner wrapper to manage overflow */
+  }
+
+  .headline-kom h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    clip-path: inset(0); /* Clipping boundaries */
+  }
+
+  .headline-kom h2 span {
+    color: var(--Almost-black);
+    font-family: "Cormorant";
+    font-size: 4vw;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%; /* 4.575rem */
+    letter-spacing: 0.07625rem;
+    position: relative;
+  }
+
+  .social-text {
+    width: 60vw;
+    height: auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .social-text h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 6vw;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .social-text span {
+    color: var(--Almost-black);
+    font-family: Cormorant;
+    font-size: 7vw;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .emil-bar h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 2vw;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar h4 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 1.5vw;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    transition: none;
+  }
+
+  .socials-sec {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .emil-bar {
+    padding-top: 15px;
+    display: flex;
+    gap: 1vw;
+    border-bottom: 1px solid var(--Almost-black);
+    align-items: center;
+    padding-bottom: 15px;
+  }
+
+  .emil-bar-link {
+    margin-top: 50px;
+    display: inline-block; /* Makes the anchor behave like a button */
+    position: relative;
+  }
+
+  .emil-bar:hover h4 {
+    color: white;
+  }
+
+  .emil-bar:hover h3 {
+    color: white;
+    transform: translateX(10px);
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar:hover .svgArrow {
+    fill: white;
+    transform: translateX(-10px);
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .emil-bar-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: #4c6ee2;
+    transform: scaleY(0);
+    transform-origin: top; /* Fill up from the bottom */
+    transition: transform 0.6s ease;
+  }
+
+  /* On hover, the before pseudo-element fills from the bottom */
+  .emil-bar-link:hover::before {
+    transform: scaleY(1); /* Fill from the bottom */
+    transform-origin: bottom;
+  }
+
+  .svgArrow {
+    width: 1.8vw;
+    fill: var(--Almost-black);
+    height: auto;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 }
 
-.musikknap h3 {
-  color: #656565;
-  font-family: "PP Neue Montreal Bold";
-  font-size: 1vw;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 125%; /* 20px */
-  letter-spacing: 0.32px;
-}
+@media screen and (max-width: 500px) {
+  .introduktion {
+    margin-top: 3vh;
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
 
-.text-wrapper {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  height: 1em; /* Ensures the block has a height */
-  width: 2em; /* Adjust width to fit text */
-}
+  .musikknap {
+    position: fixed;
+    top: 95%; /* Adjust as needed */
+    left: 90%; /* Distance from the left corner */
+    transform: rotate(-90deg); /* Rotate and center */
+    transform-origin: left top; /* Ensure proper rotation */
+    white-space: nowrap; /* Prevents text from breaking */
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    overflow: hidden;
+    mix-blend-mode: difference;
+    z-index: 1;
+  }
 
-.it-container {
-  position: relative;
-  display: inline-block;
-  height: auto;
-  overflow: hidden;
-  cursor: none;
-}
+  .musikknap h3 {
+    color: #ffffff;
+    font-family: "PP Neue Montreal Bold";
+    font-size: 1.1rem;
+    font-style: normal;
+    font-weight: 500;
+  }
 
-.overskrift-container {
-  overflow: hidden;
-}
+  .text-wrapper {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 1em; /* Ensures the block has a height */
+    width: 2em; /* Adjust width to fit text */
+  }
 
-.items {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  display: none;
-  pointer-events: none;
-}
+  .it-container {
+    position: relative;
+    display: inline-block;
+    height: auto;
+    overflow: hidden;
+    cursor: none;
+  }
 
-.image-trail {
-  position: absolute;
-  width: auto;
-  height: 25vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 2;
-}
+  .overskrift-container {
+    overflow: hidden;
+  }
 
-.text {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
+  .items {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    display: none;
+    pointer-events: none;
+  }
 
-.fra {
-  transform: translate(0);
-}
+  .image-trail {
+    position: absolute;
+    width: auto;
+    height: 25vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+  }
 
-.til {
-  transform: translateY(100%); /* Starts hidden below */
-}
+  .text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-.musikknap span {
-  color: var(--Text-color-red, #0e0e0e);
-  font-family: "PP Neue Montreal Bold";
-  font-size: 1vw;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 125%;
-  letter-spacing: 0.32px;
-}
+  .fra {
+    transform: translate(0);
+  }
 
-.overskrifter h1 {
-  color: var(--Text-color-red, #0e0e0e);
-  font-family: "Denim TRIAL";
-  font-size: 18vw;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 300px */
-  text-transform: uppercase;
-}
+  .til {
+    transform: translateY(100%); /* Starts hidden below */
+  }
 
-.overskrifter h2 {
-  color: var(--Text-color-red, #0e0e0e);
-  font-family: Cormorant;
-  font-size: 10vw;
-  font-style: italic;
-  font-weight: 500;
-  line-height: 120%; /* 204px */
-  letter-spacing: -1.7px;
-}
+  .musikknap span {
+    color: var(--Text-color-red, #acacac);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 500;
+  }
 
-.billede-container {
-  position: absolute;
-  top: 10%;
-  left: 58%;
-  z-index: -1;
-}
+  .overskrifter h1 {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: "Denim TRIAL";
+    font-size: 18vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 300px */
+    text-transform: uppercase;
+  }
 
-.billede-container img {
-  display: block;
-  width: 40vw;
-  height: auto;
-}
+  .overskrifter h2 {
+    color: var(--Text-color-red, #0e0e0e);
+    font-family: Cormorant;
+    font-size: 10vw;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 120%; /* 204px */
+    letter-spacing: -1.7px;
+  }
 
-.tekst-intro {
-  margin-top: 10vh;
-  color: #0e0e0e;
-  font-family: "PP Neue Montreal";
-  font-size: 1vw;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%; /* 20px */
-  letter-spacing: 0.32px;
-  max-width: 30vw;
-}
+  .billede-container {
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    z-index: -1;
+  }
 
-.hvemerjeg h1 {
-  color: var(#0e0e0e);
-  font-family: "Denim TRIAL";
-  font-size: 11vw;
-  font-style: normal;
-  font-weight: 400;
-  text-transform: uppercase;
-}
+  .billede-container img {
+    display: block;
+    width: 50vw;
+    height: auto;
+  }
 
-.billedetekst {
-  margin-top: 15vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+  .tekst-intro {
+    margin-top: 10vh;
+    color: #ffffff;
+    mix-blend-mode: difference;
+    font-family: "PP Neue Montreal";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+    max-width: 80vw;
+  }
 
-.kreativ {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  width: 35vw;
-  color: #000;
-  font-family: "PP Neue Montreal";
-  font-size: 1vw;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%; /* 20px */
-  letter-spacing: 0.32px;
-}
+  .hvemerjeg h1 {
+    color: var(#0e0e0e);
+    font-family: "Denim TRIAL";
+    font-size: 11vw;
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
 
-.kreativ h2 {
-  color: #000;
-  font-family: "Denim TRIAL";
-  font-size: 4vw;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 120%; /* 66px */
-}
+  .billedetekst {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
 
-.hvemerjeg {
-  margin-top: 25vh;
-}
+  .kreativ {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 80vw;
+    color: #000;
+    font-family: "PP Neue Montreal";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 125%; /* 20px */
+    letter-spacing: 0.32px;
+  }
 
-.billedetekst img {
-  width: 45vw;
-}
+  .kreativ h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 66px */
+  }
 
-.racesWrapper {
-  margin-top: 10vh;
-  position: relative;
-  overflow: hidden;
-  display: flex; /* Use flexbox for horizontal layout */
-  align-items: center;
-  height: 80vh; /* Full viewport height */
-  flex-wrap: nowrap; /* Prevent wrapping */
-}
+  .hvemerjeg {
+    margin-top: 10vh;
+  }
 
-.races {
-  width: fit-content;
-  display: flex;
-  flex-wrap: nowrap;
-}
+  .billedetekst img {
+    width: 80vw;
+  }
 
-.card {
-  position: relative;
-  margin-top: 5vh;
-  flex: 0 0 auto; /* Prevent cards from shrinking */
-  width: 30vw; /* Set width of each card */
-  height: 60vh; /* Set height of each card */
-  background-color: #fffcf6;
-  color: var(--Almost-black); /* Text color */
-  display: flex; /* Center text */
-  flex-direction: column;
-  justify-content: space-between; /* Center horizontally */
-  margin-right: 32px; /* Space between cards */
-  padding: 25px;
-  border-radius: 25px;
-  overflow: hidden;
-}
+  .racesWrapper {
+    margin-top: 15vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
 
-.card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: #70cff8;
-  z-index: 0;
-  transform: translateX(var(--pseudo-transform, 0%)); /* Animate with GSAP */
-  clip-path: inset(0);
-}
+  .races {
+    display: flex;
+    flex-direction: column;
+  }
 
-.card:first-child {
-  --pseudo-transform: 100%; /* Fully covered for the first card */
-}
+  .card {
+    position: relative;
+    margin-top: 5vh;
+    width: 100%;
+    height: 400px;
+    background-color: #fffcf6;
+    color: var(--Almost-black); /* Text color */
+    display: flex; /* Center text */
+    flex-direction: column;
+    justify-content: space-between; /* Center horizontally */
+    padding: 25px;
+    border-radius: 25px;
+    overflow: hidden;
+  }
 
-.card h1 {
-  text-decoration: none;
-  color: var(--Almost-black);
-  font-family: "PP Neue Montreal Bold";
-  font-size: 2.5vw;
-  font-style: normal;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  z-index: 1;
-}
+  .card h1 {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal Bold";
+    font-size: 9vw;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
 
-#mindreIkoner2 {
-  width: 8vw;
-  height: auto;
-}
+  #mindreIkoner2 {
+    width: 20vw;
+    height: auto;
+  }
 
-#mindreIkoner3 {
-  width: 4vw;
-  height: auto;
-}
+  #mindreIkoner3 {
+    width: 16vw;
+    height: auto;
+  }
 
-#mindreIkoner1 {
-  width: 6vw;
-  height: auto;
-}
+  #mindreIkoner1 {
+    width: 20vw;
+    height: auto;
+  }
 
-.card img {
-  z-index: 1;
-  display: block;
-  width: 8vw;
-  height: auto;
-}
+  .card img {
+    z-index: 1;
+    display: block;
+    width: 20vw;
+    height: auto;
+  }
 
-.card p {
-  text-decoration: none;
-  color: var(--Almost-black);
-  font-family: "PP Neue Montreal";
-  font-size: 1.1vw;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.4;
-  letter-spacing: 0.24px;
-  max-width: 25vw;
-  z-index: 1;
-}
+  .card p {
+    text-decoration: none;
+    color: var(--Almost-black);
+    font-family: "PP Neue Montreal";
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.24px;
+    max-width: 80vw;
+    z-index: 1;
+  }
 
-.headline-kom-inner {
-  position: relative; /* Use relative to allow proper overflow control */
-  overflow: hidden; /* Ensure content beyond the bounds is clipped */
-}
+  .headline-kom h2 {
+    color: #000;
+    font-family: "Denim TRIAL";
+    font-size: 10vw;
+    font-style: normal;
+    font-weight: 400;
+    position: relative;
+    clip-path: inset(0); /* Clipping boundaries */
+  }
 
-.headline-kom {
-  position: absolute; /* Position it absolutely within the wrapper */
-  top: 0px; /* Adjust as needed */
-  left: 0px; /* Align to the left */
-  z-index: 10; /* Ensure it appears above other elements */
-  overflow: visible; /* Allow inner wrapper to manage overflow */
-}
+  .headline-kom h2 span {
+    color: var(--Almost-black);
+    font-family: "Cormorant";
+    font-size: 10vw;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 120%; /* 4.575rem */
+    letter-spacing: 0.07625rem;
+    position: relative;
+  }
 
-.headline-kom h2 {
-  color: #000;
-  font-family: "Denim TRIAL";
-  font-size: 4vw;
-  font-style: normal;
-  font-weight: 400;
-  position: relative;
-  clip-path: inset(0); /* Clipping boundaries */
-}
+  .social-text {
+    width: 60vw;
+    height: auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
 
-.headline-kom h2 span {
-  color: var(--Almost-black);
-  font-family: "Cormorant";
-  font-size: 4vw;
-  font-style: italic;
-  font-weight: 400;
-  line-height: 120%; /* 4.575rem */
-  letter-spacing: 0.07625rem;
-  position: relative;
-}
+  .social-text {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+  }
 
-.social-text {
-  width: 60vw;
-  height: auto;
-  text-align: center;
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
-}
+  .social-text h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 12vw;
+    font-style: normal;
+    font-weight: 400;
+  }
 
-.social-text h3 {
-  color: var(--Almost-black);
-  font-family: "Denim TRIAL";
-  font-size: 6vw;
-  font-style: normal;
-  font-weight: 400;
-}
+  .social-text span {
+    color: var(--Almost-black);
+    font-family: Cormorant;
+    font-size: 12vw;
+    font-style: italic;
+    font-weight: 400;
+  }
 
-.social-text span {
-  color: var(--Almost-black);
-  font-family: Cormorant;
-  font-size: 7vw;
-  font-style: italic;
-  font-weight: 400;
-}
+  .emil-bar h3 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    margin-right: 2vw;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 
-.emil-bar h3 {
-  color: var(--Almost-black);
-  font-family: "Denim TRIAL";
-  font-size: 1.5vw;
-  font-style: normal;
-  font-weight: 400;
-  margin-right: 2vw;
-  transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
+  .emil-bar h4 {
+    color: var(--Almost-black);
+    font-family: "Denim TRIAL";
+    font-size: 4vw;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    transition: none;
+  }
 
-.emil-bar h4 {
-  color: var(--Almost-black);
-  font-family: "Denim TRIAL";
-  font-size: 1.5vw;
-  font-style: normal;
-  font-weight: 400;
-  text-decoration: none;
-  transition: none;
-}
+  .socials-sec {
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10vh;
+  }
 
-.socials-sec {
-  margin-top: 5vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
+  .emil-bar {
+    padding-top: 5vh;
+    display: flex;
+    gap: 1vw;
+    border-bottom: 1px solid var(--Almost-black);
+    align-items: center;
+    padding-bottom: 5px;
+  }
 
-.emil-bar {
-  padding-top: 15px;
-  display: flex;
-  gap: 1vw;
-  border-bottom: 1px solid var(--Almost-black);
-  align-items: center;
-  padding-bottom: 15px;
-}
-
-.emil-bar-link {
-  margin-top: 50px;
-  display: inline-block; /* Makes the anchor behave like a button */
-  position: relative;
-}
-
-.emil-bar:hover h4 {
-  color: white;
-}
-
-.emil-bar:hover h3 {
-  color: white;
-  transform: translateX(10px);
-  transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.emil-bar:hover .svgArrow {
-  fill: white;
-  transform: translateX(-10px);
-  transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.emil-bar-link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  background-color: #4c6ee2;
-  transform: scaleY(0);
-  transform-origin: top; /* Fill up from the bottom */
-  transition: transform 0.6s ease;
-}
-
-/* On hover, the before pseudo-element fills from the bottom */
-.emil-bar-link:hover::before {
-  transform: scaleY(1); /* Fill from the bottom */
-  transform-origin: bottom;
-}
-
-.svgArrow {
-  width: 1.8vw;
-  fill: var(--Almost-black);
-  height: auto;
-  transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  .svgArrow {
+    width: 6vw;
+    fill: var(--Almost-black);
+    height: auto;
+    transition: transform 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 }

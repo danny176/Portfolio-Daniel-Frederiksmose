@@ -640,7 +640,7 @@ const introAnimation = document.getElementById("introAnimation");
 const introAnimationTimeline = gsap.timeline({
   onStart: () => {
     // Lås scroll ved starten af intro animationen
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow = "visible";
   },
 
   onComplete: () => {

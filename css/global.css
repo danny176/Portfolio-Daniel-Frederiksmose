@@ -19,6 +19,16 @@ html.lenis body {
   pointer-events: none;
 }
 
+.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+html.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
 * {
   margin: 0px 0px;
   padding: 0;
@@ -424,7 +434,8 @@ html {
   }
 
   .scroll-to-top img {
-    width: 10vw;
+    display: block;
+    width: 8vw;
   }
 
   #footerLogo {

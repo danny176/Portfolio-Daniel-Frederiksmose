@@ -52,12 +52,27 @@ gsap.to(".nav-container", {
   },
 });
 
+//Hamburger menu
+
 function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
+  // Toggle the 'open' class on the hamburger icon (jQuery)
+  $("#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4").toggleClass("open");
+
+  // Toggle the 'active' class on the menu
+  const menu = document.getElementById("menu");
+  menu.classList.toggle("active");
+
+  // Toggle the 'no-scroll' class on both <body> and <html>
+  document.body.classList.toggle("no-scroll");
+  document.documentElement.classList.toggle("no-scroll");
+
+  // If using Lenis smooth scrolling, stop it when the menu is active
+  if (window.lenis) {
+    if (menu.classList.contains("active")) {
+      lenis.stop(); // Stop smooth scrolling
+    } else {
+      lenis.start(); // Resume smooth scrolling
+    }
+  }
 }
 
-$(document).ready(function(){
-	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
-		$(this).toggleClass('open');
-	});
-});
